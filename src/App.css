@@ -16,12 +16,12 @@ body{
   background: var(--main-bg-color);
   border-radius: 2rem;
 }
-.pink-nav{
-  background: #f7ccca;
-  width: 100%;
+.nav{
   display: flex;
-  color: white;
-  padding: 20px;
+  background: var(--main-color);
+  width: 100%;
+  color: var(--main-text-color);
+  padding: 1rem;
   font-weight: 600;
   font-size: 2rem;
   justify-content: space-between;
@@ -35,17 +35,16 @@ body{
   border-radius: 1rem;
   padding: 1rem 5rem;
   border: none;
-
 }
 .button{
-  background-color: #f7ccca;
+  background-color: var(--main-color);
   border: none;
   color: white;
-  padding: 15px 30px;
+  padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   margin: 2rem 2px;
   cursor: pointer;
@@ -54,12 +53,12 @@ body{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
   ,0 6px 20px 0 rgba(0,0,0,0.19);
 }
-.button2{
+.textLink{
   border: none;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-clolor);
   color: white;
   padding: 1rem;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
 }
 .button:hover{
