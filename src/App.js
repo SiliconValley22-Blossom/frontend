@@ -1,13 +1,13 @@
 import Modal from './components/Modal';
+import NavBar from './components/molecule/NavBar';
 import './App.css';
 import React from 'react';
+
 
 function App() {
   return (
     <div className="App">
-       <div className="pink-nav">
-        <div>Blossom</div>
-      </div>
+      <NavBar></NavBar>
       <Modal/>
     </div>
   );

@@ -1,3 +1,8 @@
+:root{
+  --main-color: #f7ccca;
+  --main-bg-color: #d8d1e1;
+  --main-text-color: white;
+}
 .App {
   text-align: center;
 }
@@ -5,9 +10,10 @@ body{
   font-family: 'nanumsquare';
 }
 .modal{
-  margin: 70px;
-  padding: 5rem;
-  background: #d8d1e1;
+  margin-top: 4.5rem;
+  margin-left: 15rem;
+  width: 65%;
+  background: var(--main-bg-color);
   border-radius: 2rem;
 }
 .pink-nav{
@@ -17,7 +23,12 @@ body{
   color: white;
   padding: 20px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
+  justify-content: space-between;
+}
+.hamburger{
+  display: flex;
+  color:white;
 }
 .input{
   margin-top: 1.5rem;
@@ -45,7 +56,7 @@ body{
 }
 .button2{
   border: none;
-  background-color: #d8d1e1;
+  background-color: var(--main-bg-color);
   color: white;
   padding: 1rem;
   font-size: 16px;
