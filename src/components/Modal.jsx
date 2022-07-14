@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from "./Button";
-import TextLink from "./TextLink";
-import Input from "./Input";
+import Button from "./atom/Button";
+import TextLink from "./atom/TextLink";
+import Input from "./atom/Input";
 
 function Modal(){
     return(
