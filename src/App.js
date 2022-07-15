@@ -1,4 +1,4 @@
-import Modal from './components/Modal';
+import Modal from './components/organisms/Modal';
 import NavBar from './components/molecule/NavBar';
 import './App.css';
 import React from 'react';
