@@ -1,4 +1,12 @@
 import React,{useState} from 'react';
+import styled from 'styled-components';
+
+const StyledInput= styled.input`
+  margin-top: 1.5rem;
+  border-radius: 1rem;
+  padding: 1rem 5rem;
+  border: none;
+`;
 
 function Input(){
     const [text,setText] = useState('');
@@ -6,7 +14,7 @@ function Input(){
     
     return (
     <div>
-      <input class='input' onChange={onChange} value={text}></input>
+      <StyledInput onChange={onChange} value={text}></StyledInput>
   
     </div>
     )    
