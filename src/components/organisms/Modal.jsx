@@ -1,3 +1,4 @@
+        <StyledInput type="text" placeholder='ID'></StyledInput>
 import React from 'react';
 import Button from "../atom/Button";
 import TextLink from "../atom/TextLink";
