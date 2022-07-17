@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledTextLink = styled.button`
-    background-color: var(--main-bg-color);
+    background-color: var(--main-purple);
     border: 0;
     color: white;
     padding: 1rem;

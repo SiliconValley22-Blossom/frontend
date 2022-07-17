@@ -7,7 +7,7 @@ import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 
 const StyledHeader = styled.div`
     display: flex;
-    background: var(--main-color);
+    background: var(--main-pink);
     width: 1;
     flex-direction: row;
     flex : 1;
@@ -17,7 +17,7 @@ const StyledHeader = styled.div`
     font-size: 2rem;
     justify-content: space-between;
 
-    .ham{
+    .hamburger{
         width: 2rem;
         height: 2rem;
     }
@@ -27,7 +27,7 @@ function NavBar(){
     return(
         <StyledHeader>
             <div>Blossom</div>
-            <ThMenuOutline className='ham'></ThMenuOutline>
+            <ThMenuOutline className='hamburger'></ThMenuOutline>
         </StyledHeader>
     )
 }

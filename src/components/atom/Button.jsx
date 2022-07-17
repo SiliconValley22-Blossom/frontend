@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-border-radius: 1rem;
+
 const StyledButton = styled.button`
 padding: 1rem 2rem;
 border-radius: 1rem;
@@ -15,7 +15,7 @@ cursor: pointer;
 font-size: 1rem;
 font-weight: bold;
 display: inline-block;
-background: var(--main-color)
+background: var(--main-pink)
   
 `;
 

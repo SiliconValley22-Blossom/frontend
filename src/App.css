@@ -1,6 +1,7 @@
 :root{
-  --main-color: #f7ccca;
-  --main-bg-color: #CFEBD4;
+  --main-pink: #f7ccca;
+  --main-green: #CFEBD4;
+  --main-purple: #d8d1e1;
   --main-text-color: white;
 }
 .App {
