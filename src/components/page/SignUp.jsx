@@ -4,7 +4,7 @@ import './App.css';
 import React from 'react';
 
 
-function SingUp(){
+function SignUp(){
     return(
             <div className="App">
                 <NavBar></NavBar>
@@ -13,4 +13,4 @@ function SingUp(){
     )
 }
 
-export default SingUp;
+export default SignUp;
