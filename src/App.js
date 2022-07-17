@@ -1,4 +1,4 @@
-import Modal from './components/organisms/Modal-signup';
+import ModalSignUp from './components/organisms/Modal-signup';
 import NavBar from './components/molecule/NavBar';
 import './App.css';
 import React from 'react';
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      <Modal/>
+      <ModalSignUp/>
     </div>
   );
 }
