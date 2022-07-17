@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "../atom/Button";
+import Button from '../atom/Button'
 // import Input from "../atom/Input";
 import styled from 'styled-components';
 
