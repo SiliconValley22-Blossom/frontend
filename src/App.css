@@ -1,6 +1,6 @@
 :root{
   --main-color: #f7ccca;
-  --main-bg-color: #d8d1e1;
+  --main-bg-color: #CFEBD4;
   --main-text-color: white;
 }
 .App {
@@ -9,62 +9,12 @@
 body{
   font-family: 'nanumsquare';
 }
-.modal{
-  margin-top: 4.5rem;
-  margin-left: 15rem;
-  width: 65%;
-  background: var(--main-bg-color);
-  border-radius: 2rem;
-}
-.nav{
-  display: flex;
-  background: var(--main-color);
-  width: 100%;
-  color: var(--main-text-color);
-  padding: 1rem;
-  font-weight: 600;
-  font-size: 2rem;
-  justify-content: space-between;
-}
-.hamburger{
-  display: flex;
-  color:white;
-}
-.input{
-  margin-top: 1.5rem;
-  border-radius: 1rem;
-  padding: 1rem 5rem;
-  border: none;
-}
-.button{
-  background-color: var(--main-color);
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 2rem 2px;
-  cursor: pointer;
-  border-radius: 1rem;
-  width: 150px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
-  ,0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.textLink{
-  border: none;
-  background-color: var(--main-bg-clolor);
-  color: white;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
+
 .button:hover{
   background: #ff9f9f;
-  color:white;
+  color: white;
 }
+
 .list{
   margin-top: 30px;
   text-align: left;

@@ -1,5 +1,5 @@
-import Modal from './components/Modal';
-import NavBar from './components/molecule/NavBar';
+import Modal from './organisms/Modal';
+import NavBar from './molecule/NavBar';
 import './App.css';
 import React from 'react';
 
