@@ -14,7 +14,7 @@ function Input(){
     
     return (
     <div>
-      <StyledInput type="password" placeholder='PW' onChange={onChange} value={text}></StyledInput>
+      <StyledInput onChange={onChange} value={text}></StyledInput>
   
     </div>
     )    
