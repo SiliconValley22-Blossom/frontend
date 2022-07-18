@@ -1,0 +1,26 @@
+.dropdown{
+    background-color: var(--main-purple);
+    width: 200px;
+    position: absolute;
+    top: 80px;
+    list-style: none;
+    text-align: start;
+}
+.dropdown-clicked{
+    display: none;
+}
+.dropdown li{
+    background-color: var(--main-pink);
+    cursor: pointer;
+}
+.dropdown li:hover{
+    background-color: var(--main-green);
+}
+.dropdown-link{
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 16px;
+}

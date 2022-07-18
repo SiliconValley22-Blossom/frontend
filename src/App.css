@@ -2,10 +2,22 @@
   --main-pink: #f7ccca;
   --main-green: #CFEBD4;
   --main-purple: #d8d1e1;
-  --main-text-color: white;
+  --main-white: white;
+  --sub-text: black;
 }
 .App {
   text-align: center;
+}
+.home,
+.signup,
+.photochange,
+.mypage,
+.login{
+  text-align: center;
+}
+.home{
+  color:black;
+  font-size: 100px;;
 }
 body{
   font-family: 'nanumsquare';
@@ -22,30 +34,11 @@ body{
   padding-left: 20px;
   padding-right: 20px;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
