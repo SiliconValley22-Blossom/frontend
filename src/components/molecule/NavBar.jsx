@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 
-//import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 
 
 
@@ -16,6 +16,7 @@ const StyledHeader = styled.div`
     font-weight: 600;
     font-size: 2rem;
     justify-content: space-between;
+
     .ham{
         width: 2rem;
         height: 2rem;
@@ -26,7 +27,7 @@ function NavBar(){
     return(
         <StyledHeader>
             <div>Blossom</div>
-            {/* <ThMenuOutline className='ham'></ThMenuOutline> */}
+            <ThMenuOutline className='ham'></ThMenuOutline>
         </StyledHeader>
     )
 }
