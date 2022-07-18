@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+yarn.lock
 
 # testing
 /coverage
@@ -80,5 +81,7 @@ sketch
 
 # Ignore code-workspaces
 *.code-workspace
+
+
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,react,git
