@@ -8,13 +8,13 @@ const StyledInput= styled.input`
   border: none;
 `;
 
-function Input(){
+function Input(props){
     const [text,setText] = useState('');
     const onChange=(e) => { setText(e.target.value);};
     
     return (
     <div>
-      <StyledInput type="password" placeholder='PW' onChange={onChange} value={text}></StyledInput>
+      <StyledInput type={props.type} placeholder={props.name} onChange={onChange} value={text}></StyledInput>
   
     </div>
     )    

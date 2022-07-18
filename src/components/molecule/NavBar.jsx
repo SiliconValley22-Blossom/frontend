@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 
-//import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 
 
 
@@ -26,7 +26,7 @@ function NavBar(){
     return(
         <StyledHeader>
             <div>Blossom</div>
-            {/* <ThMenuOutline className='ham'></ThMenuOutline> */}
+            <ThMenuOutline className='ham'></ThMenuOutline>
         </StyledHeader>
     )
 }

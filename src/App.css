@@ -3,18 +3,35 @@
   --main-bg-color: #CFEBD4;
   --main-text-color: white;
 }
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
 .App {
   text-align: center;
 }
 body{
   font-family: 'nanumsquare';
 }
-
+.wrap{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2rem;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.container2{
+  display: grid;
+  grid-template-rows: 1fr;
+  row-gap: 1rem;
+}
 .button:hover{
   background: #ff9f9f;
   color: white;
 }
-
 .list{
   margin-top: 30px;
   text-align: left;
