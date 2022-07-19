@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from "../atom/Input";
 import Button from "../atom/Button";
 import styled from 'styled-components';
 
@@ -9,20 +10,14 @@ const StyledSignUp = styled.div`
   border-radius: 2rem;
 `;
 
-const StyledInput= styled.input`
-  margin-top: 1.5rem;
-  border-radius: 1rem;
-  padding: 1rem 5rem;
-  border: none;
-`;
 
 function ModalSignUp(){
     return(
       <StyledSignUp>
-        <StyledInput type="text" placeholder='ID'></StyledInput>
-        <p><StyledInput type="password" placeholder='PW'></StyledInput></p>
-        <p><StyledInput type="password" placeholder='PW 확인'></StyledInput></p>
-        <p><StyledInput type="text" placeholder='닉네임'></StyledInput></p>
+        <Input type="text" name='ID'></Input>
+        <p><Input type="password" name='PW'></Input></p>
+        <p><Input type="password" name='PW 확인'></Input></p>
+        <p><Input type="text" name='닉네임'></Input></p>
         <p><Button>회원가입</Button></p>
         </StyledSignUp>
     )

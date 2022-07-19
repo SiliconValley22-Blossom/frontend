@@ -12,7 +12,7 @@ const StyledModal = styled.div`
     padding: 5rem 2rem 5rem 2rem;
 `;
 
-function Modal(){
+function ModalMyPage(){
     return(
         <div className="container">
             <StyledModal>
@@ -62,4 +62,4 @@ function Modal(){
     );
   }
 
-  export default Modal;
+  export default ModalMyPage;

@@ -1,12 +1,16 @@
 import React from 'react';
 import '../../App.css'
+import ModalMyPage from '../organisms/ModalMyPage';
 
 function MyPage(){
     return (
         <div className="mypage">
-            <h1>This is the User page</h1>
+            <ModalMyPage></ModalMyPage>
         </div>
     )
 };
 
 export default MyPage;
+
+
+
