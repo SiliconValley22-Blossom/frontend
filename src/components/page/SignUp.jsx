@@ -1,4 +1,4 @@
-import ModalSignUp from '../organisms/ModalSignUp';
+import SignUpWrapper from '../organisms/SignUpWrapper';
 import '../../App.css';
 import React from 'react';
 
@@ -6,7 +6,7 @@ import React from 'react';
 function SignUp(){
     return(
         <div className='signup'>
-            <ModalSignUp/>
+            <SignUpWrapper/>
         </div>
         
     )

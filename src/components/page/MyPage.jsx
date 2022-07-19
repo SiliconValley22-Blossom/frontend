@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../App.css'
-import ModalMyPage from '../organisms/ModalMyPage';
+import MyPageWrapper from '../organisms/MyPageWrapper';
 
 function MyPage(){
     return (
         <div className="mypage">
-            <ModalMyPage></ModalMyPage>
+            <MyPageWrapper></MyPageWrapper>
         </div>
     )
 };

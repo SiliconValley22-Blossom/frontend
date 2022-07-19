@@ -2,9 +2,10 @@ import React from 'react';
 import Button from "../atom/Button";
 import User_info from "../molecule/User_info";
 import styled from 'styled-components';
+import MyPage from '../page/MyPage';
 
 const StyledModal = styled.div`
-    background: #d8d1e1;
+    background: var(--main-purple);
     border-radius: 2rem;
     width: 57rem;
     height: 28rem;
@@ -12,9 +13,9 @@ const StyledModal = styled.div`
     padding: 5rem 2rem 5rem 2rem;
 `;
 
-function ModalMyPage(){
+function MyPageWrapper(){
     return(
-        <div className="container">
+        <div className=" mypagewrapper">
             <StyledModal>
                 <div className="wrap">
                     <div>
@@ -62,4 +63,4 @@ function ModalMyPage(){
     );
   }
 
-  export default ModalMyPage;
+  export default MyPageWrapper;

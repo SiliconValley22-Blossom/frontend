@@ -11,7 +11,7 @@ const StyledLogin = styled.div`
   border-radius: 2rem;
 `;
 
-function ModalLogin(){
+function LoginWrapper(){
     return(
       <StyledLogin>
         <p><Input name="ID" type="text"></Input></p>
@@ -23,4 +23,4 @@ function ModalLogin(){
     )
   }
 
-  export default ModalLogin;
+  export default LoginWrapper;

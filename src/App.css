@@ -32,7 +32,7 @@ body{
   grid-template-rows: 1fr 1fr;
   grid-gap: 2rem;
 }
-.container{
+.mypagewrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

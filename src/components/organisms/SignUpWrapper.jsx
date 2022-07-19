@@ -11,7 +11,7 @@ const StyledSignUp = styled.div`
 `;
 
 
-function ModalSignUp(){
+function SignUpWrapper(){
     return(
       <StyledSignUp>
         <Input type="text" name='ID'></Input>
@@ -23,4 +23,4 @@ function ModalSignUp(){
     )
   }
 
-  export default ModalSignUp;
+  export default SignUpWrapper;
