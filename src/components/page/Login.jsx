@@ -1,4 +1,4 @@
-import ModalLogin from '../organisms/ModalLogin';
+import LoginWrapper from '../organisms/LoginWrapper';
 import '../../App.css';
 import React from 'react';
 
@@ -6,7 +6,7 @@ import React from 'react';
 function Login(){
     return(
             <div className="login">
-                <ModalLogin/>
+                <LoginWrapper/>
             </div>
     )
 }

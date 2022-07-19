@@ -17,7 +17,7 @@ function DownloadButton  ({disabled,children}){
     </StyledDownload>;
   }
   
-  export default DownloadButton;
+export default DownloadButton;
 
 
   
