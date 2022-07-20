@@ -9,7 +9,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
-axios.defaults.baseURL='http://127.0.0.1:5000';
+axios.defaults.baseURL='http://backend:5000';
 axios.defaults.withCredentials = true;
 
 
