@@ -5,7 +5,7 @@ import MyPageWrapper from '../organisms/MyPageWrapper';
 function MyPage(){
     return (
         <div className="mypage">
-            <MyPageWrapper></MyPageWrapper>
+            <MyPageWrapper/>
         </div>
     )
 };

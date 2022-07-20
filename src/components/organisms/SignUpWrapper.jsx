@@ -10,7 +10,6 @@ const StyledSignUp = styled.div`
   border-radius: 2rem;
 `;
 
-
 function SignUpWrapper(){
     return(
       <StyledSignUp>
