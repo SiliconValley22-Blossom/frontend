@@ -9,7 +9,7 @@ const StyledDisplay = styled.div`
     border-radius: 2rem;
     box-shadow: 0 4px 4px 0rgba(0,0,0,0.25);
     border: solid 1px #cdcdcd;
-    background-color: var(--main-pink);
+    background-color: var(--main-gray);
   `;
 
 

@@ -3,6 +3,7 @@
   --main-green: #CFEBD4;
   --main-purple: #d8d1e1;
   --main-white: white;
+  --main-gray: #f4f4f4;
   --sub-text: black;
 }
 img{
@@ -21,7 +22,7 @@ img{
 }
 .home{
   color:black;
-  font-size: 50px;;
+  font-size: 10px;;
 }
 body{
   font-family: 'nanumsquare';
@@ -36,10 +37,17 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.container2{
+.container{
   display: grid;
   grid-template-rows: 1fr;
   row-gap: 1rem;
+}
+.upload{
+    width: 10rem;
+    height: 5rem;
+    margin: 0 50rem 7px 15rem;
+    padding: 5px 54px 18px 55px;
+    border-radius: 2rem;
 }
 .button:hover{
   background: #ff9f9f;
