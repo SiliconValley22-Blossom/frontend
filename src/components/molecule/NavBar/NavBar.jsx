@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
 import {TimesOutline} from '@styled-icons/typicons/TimesOutline';
 import './NavBar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const StyledHeader = styled.div`
@@ -57,7 +57,7 @@ function NavBar(){
         <StyledHeader>
             <Link to ='/' className='navbar-logo' onClick = {closeMobileMenu}>
                 Blossom
-                <FontAwesomeIcon icon className = 'fas fa-trillium'/>
+                {/* <FontAwesomeIcon icon className = 'fas fa-trillium'/> */}
             </Link>
             
             {/* 화면 작아지면 메뉴바 보이게 하는 것 구현해야함 */}
