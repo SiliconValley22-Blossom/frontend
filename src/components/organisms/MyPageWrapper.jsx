@@ -3,6 +3,14 @@ import Button from "../atom/Button";
 import User_info from "../molecule/User_info";
 import styled from 'styled-components';
 
+
+const StyledContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap : 2rem;
+    align-items: center;
+`;
+
 const StyledWrapper = styled.div`
     background: var(--main-purple);
     border-radius: 2rem;
@@ -19,15 +27,10 @@ const StyledPics = styled.div`
     grid-gap: 2rem;
 `
 
-const StyledContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr
-`
-
 const StyledUserBtns = styled.div`
     display: grid;
     grid-template-rows: 1fr;
-    row-gap: 0.5rem;
+    grid-gap: 0.5rem;
 `
 
 function MyPageWrapper(){
@@ -62,8 +65,7 @@ function MyPageWrapper(){
                     <br/><Button>이메일 전송</Button>
                     <br/><Button>PNG 다운</Button>
                     <br/><Button>JPEG 다운</Button>
-                 </div>
-                    
+                 </div>      
             </StyledUserBtns>
         </StyledContainer>
         

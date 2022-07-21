@@ -5,7 +5,7 @@ import Input from "../atom/Input";
 import styled from 'styled-components';
 
 const StyledLogin = styled.div`
-  margin: 4.5rem auto;
+  margin: 8rem auto;
   width: 50%;
   background: var(--main-purple);
   border-radius: 2rem;

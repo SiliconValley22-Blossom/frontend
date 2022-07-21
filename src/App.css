@@ -4,6 +4,8 @@
   --main-purple: #d8d1e1;
   --main-white: white;
   --sub-text: black;
+  --grey : #ededed;
+  --dark-grey:#585858;
 }
 img{
   max-width: 100%;

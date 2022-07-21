@@ -4,7 +4,7 @@ import Button from "../atom/Button";
 import styled from 'styled-components';
 
 const StyledSignUp = styled.div`
-  margin: 4.5rem auto;
+  margin: 9rem auto;
   width: 50%;
   background: var(--main-green);
   border-radius: 2rem;

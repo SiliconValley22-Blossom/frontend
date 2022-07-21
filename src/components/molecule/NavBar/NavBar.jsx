@@ -11,7 +11,6 @@ const StyledHeader = styled.div`
     background: var(--main-pink);
     height: 6rem;
     display: flex;
-    
     align-items: center;
     font-size: 1.5rem;
     font-weight : bold;
@@ -57,7 +56,7 @@ function NavBar(){
         <StyledHeader>
             <Link to ='/' className='navbar-logo' onClick = {closeMobileMenu}>
                 Blossom
-                <FontAwesomeIcon icon className = 'fas fa-trillium'/>
+                <i className = 'fas fa-trillium'></i>
             </Link>
             
             {/* 화면 작아지면 메뉴바 보이게 하는 것 구현해야함 */}
