@@ -5,7 +5,7 @@ import {User} from '@styled-icons/boxicons-regular/User';
 const StyledUser = styled.div`
     width: 10rem;
     height: 10rem;
-    margin: 4rem 1rem 0.5rem 4rem;
+    margin: 4rem 2rem 0.5rem 15rem;
     padding: 2rem 110px 9rem 2rem;
     border-radius: 2rem;
     background-color: #ededed;

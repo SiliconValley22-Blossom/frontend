@@ -3,7 +3,7 @@ import Button from "../atom/Button";
 import TextLink from "../atom/TextLink";
 import Input from "../atom/Input";
 import styled from 'styled-components';
-
+import axios from 'axios';
 
 const StyledLogin = styled.div`
   margin: 4.5rem auto;
@@ -12,23 +12,33 @@ const StyledLogin = styled.div`
   border-radius: 2rem;
 `;
 
+// function login(){
+//   const body={
+//     "email":"asdf",
+//     "password": "asdf"
+//   }
+//   body.append('file',this.uploadInput.files[0])
+//   body.append('filename',this.fileName.vaule);
+//   axios({
+//       method: "post",
+//       url: "/api/login",
+//       data: body
 
+//   }).then((response) => {})
+// }
+  
 function LoginWrapper(){
     return(
       <StyledLogin>
-        <p><Input name="ID" type="text" _onChange={(e)=>{
-          // setId(e.target.value);
-        }}></Input></p>
-        <p ><Input name="PW" type="password" _onChange={(e) => {
-          // setPwd(e.target.value);
-        }
+        <Input name="ID" type="text"></Input>
+        <Input name="PW" type="password"></Input>
 
-        }></Input></p>
-        <p><Button>로그인</Button></p>
-        <TextLink>회원가입</TextLink>
+        <Button >로그인</Button>
+
+        <br/><TextLink>회원가입</TextLink>
         <TextLink>ID/PW찾기</TextLink>
         </StyledLogin>
     )
   }
 
-  export default LoginWrapper;
+export default LoginWrapper;

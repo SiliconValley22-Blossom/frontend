@@ -1,11 +1,10 @@
-import PhotoChangeWrapper from '../organisms/PhotoChangeWrapper';
 import '../../App.css';
 import React from 'react';
-
+import PhotoChangeWrapper from '../organisms/PhotoChangeWrapper';
 
 function PhotoChange(){
     return(
-            <div className="login">
+            <div className="photochange">
                 <PhotoChangeWrapper/>
             </div>
     )
