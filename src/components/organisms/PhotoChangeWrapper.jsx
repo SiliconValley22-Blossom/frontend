@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../App.css'
 import Button from "../atom/Button";
 import DownloadButton from '../atom/DownloadButton';
@@ -10,35 +10,42 @@ const StyledPhotoChange = styled.div`
   margin: 4.5rem auto;
 `;
 
-function postImage(){
-    const data = new FormData();
-    data.append('file',this.uploadInput.files[0])
-    data.append('filename',this.fileName.vaule);
-    axios({
-        method: "post",
-        url: "/image",
-        data: data
-    }).then((res) => {})
-}
+const PhotoChange = () => {
+    const [file, setFile] = useState('');
 
-function PhotoChange(){
+
+    const handleUpload = (ev) => {
+        ev.preventDefault();
+        console.log(file);
+        const formData = new FormData();
+        formData.append("file", file)
+        
+        axios({
+            url: "/api/photos",
+            method: "post",
+            data: formData,
+            headers: {'Content-Type': 'multipart/form-data'}
+        }).then((response) =>{})
+    
+    }
+
     return(
             <StyledPhotoChange>
-                <p>
+                <form onSubmit={handleUpload} >
                     <div style = {{display : 'flex'}}>
-                    
                         {<Display></Display>}
                         {<Display></Display>}
                     </div>
-                </p>
-                <p>
+
+                <div>
                     <div className="upload">
-                        <input type="file"/>
-                        <Button onClick={postImage()}>업로드</Button>
+                        <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])}/>
+                        <Button type="submit">업로드</Button>
                         
                     </div>
-                        <DownloadButton/>
-                </p>
+                    <DownloadButton/>
+                </div>
+                </form> 
                 
             </StyledPhotoChange>
     )

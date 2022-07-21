@@ -5,7 +5,7 @@ import React from 'react';
 
 function SignUp(){
     return(
-        <div className='signup'>
+        <div className="signup">
             <SignUpWrapper/>
         </div>
         

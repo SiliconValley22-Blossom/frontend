@@ -8,7 +8,7 @@ const StyledModal = styled.div`
     border-radius: 2rem;
     width: 57rem;
     height: 28rem;
-    margin: 4rem 2rem 0 4rem;
+    margin: 4rem 2rem 0 7rem;
     padding: 5rem 2rem 5rem 2rem;
 `;
 
