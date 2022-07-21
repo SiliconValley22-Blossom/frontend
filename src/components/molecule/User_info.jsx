@@ -9,6 +9,7 @@ const StyledUser = styled.div`
     padding: 2rem 110px 9rem 2rem;
     border-radius: 2rem;
     background-color: #ededed;
+    
     .User{
         width: 4rem;
         height: 4rem;
