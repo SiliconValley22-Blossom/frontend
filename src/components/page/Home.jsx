@@ -1,11 +1,13 @@
+import HomeWrapper from '../organisms/HomeWrapper';
 import React from 'react';
 import '../../App.css'
 
 function Home(){
     return (
         <div className="home">
-            <h1>This is the Home page</h1>
+            <HomeWrapper/>
         </div>
     )
 };
+
 export default Home;
