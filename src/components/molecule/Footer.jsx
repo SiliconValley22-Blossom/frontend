@@ -4,6 +4,7 @@ import {Github} from '@styled-icons/bootstrap/Github';
 
 const StyledFooter = styled.div`
     background: var(--grey);
+    width: 100%
     height: 30vh;
     flex-direction: column;
     flex : 1;
@@ -13,7 +14,6 @@ const StyledFooter = styled.div`
     margin-top: 10rem;
     font-size: 1.5rem;
     color: var(--dark-grey);
-    
 
     .github{
         height: 2rem;

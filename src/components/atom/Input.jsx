@@ -4,8 +4,10 @@ import styled from 'styled-components';
 const StyledInput= styled.input`
   margin-top: 1.5rem;
   border-radius: 1rem;
-  padding: 1rem 5rem;
+  padding: 1rem 2rem;
   border: none;
+  width: 70%;
+  
 `;
 
 function Input(props){

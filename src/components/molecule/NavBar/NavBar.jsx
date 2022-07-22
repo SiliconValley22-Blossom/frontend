@@ -1,43 +1,31 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
-import {ThMenuOutline} from '@styled-icons/typicons/ThMenuOutline';
-import {TimesOutline} from '@styled-icons/typicons/TimesOutline';
 import './NavBar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../../atom/Button';
+import SignUp from '../../page/SignUp';
 
-
-const StyledHeader = styled.div`
+const StyledHeader = styled.nav`
     background: var(--main-pink);
     height: 6rem;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    justify-content:center;
+    font-size: 2rem;
     font-weight : bold;
-`;
-
-const Hamburger = styled(ThMenuOutline)`
-    color: white;
-    height; 2rem;
-    width: 2rem;
-`;
-
-const HamburgerClicked = styled(TimesOutline)`
-    color: white;
-    height; 2rem;
-    width: 2rem;
-`;
-
+`
 
 function NavBar(){
     const [click, setClick] = useState(false);
     const [dropdown, setDropdown] = useState(false);
 
+    //hamburger logo 모양 바뀜
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
+
     const onMouseEnter = () => {
-        if (window.innerWidth < 960){
+        if (window.innerWidth < 1200){
             setDropdown(false);
         }else{
             setDropdown(true);
@@ -45,7 +33,7 @@ function NavBar(){
     };
 
     const onMouseLeave = () => {
-        if (window.innerWidth < 960){
+        if (window.innerWidth < 1200){
             setDropdown(false);
         }else{
             setDropdown(false);
@@ -54,35 +42,30 @@ function NavBar(){
 
     return(
         <StyledHeader>
-            <Link to ='/' className='navbar-logo' onClick = {closeMobileMenu}>
+            <Link to ='/' className='navbar-logo'>
                 Blossom
-                <i className = 'fas fa-trillium'></i>
+                <i class = 'fas fa-trillium'/>
             </Link>
             
-            {/* 화면 작아지면 메뉴바 보이게 하는 것 구현해야함 */}
-            <div className = "menubar" onClick = {handleClick}>
-                    <styled-icon className = {click ? 'HamburgerClicked': 'Hamburger'}/> 
+            <div className = "menu-icon" onClick = {handleClick}>
+                    <i className = {click ? 'fas fa-times': 'fas fa-bars'}/> 
             </div>
 
             <ul className= {click? 'nav-menu-active' : 'nav-menu'}>
-
-                <li
-                    className = 'nav-item'
-                    onMouseEnter = {onMouseEnter}
-                    onMouseLeave = {onMouseLeave}>
-                        <Link to = '/Login' className='nav-links' onClick= {closeMobileMenu}> 로그인 </Link>
+                <li className = 'nav-item'>
+                    <Link to = '/MyPage' className='nav-links' onClick= {closeMobileMenu}> My Page </Link>
                 </li>
 
                 <li className = 'nav-item'>
-                    <Link to = '/MyPage' className='nav-links' onClick= {closeMobileMenu}> 마이페이지 </Link>
+                    <Link to = '/PhotoChange' className='nav-links' onClick= {closeMobileMenu}> Colorize </Link>
                 </li>
 
                 <li className = 'nav-item'>
-                    <Link to = '/PhotoChange' className='nav-links' onClick= {closeMobileMenu}> 컬러복원페이지 </Link>
+                        <Link to = '/Login' className='nav-links' onClick= {closeMobileMenu}> Login </Link>
                 </li>
 
                 <li className = 'nav-item'>
-                    <Link to = '/SignUp' className='nav-links' onClick= {closeMobileMenu}> 회원가입 </Link>
+                    <Link to = '/SignUp' className='nav-links' onClick= {closeMobileMenu}> SignUp </Link>
                 </li>
             </ul>
         </StyledHeader>

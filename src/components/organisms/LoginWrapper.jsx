@@ -9,6 +9,8 @@ const StyledLogin = styled.div`
   width: 50%;
   background: var(--main-purple);
   border-radius: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
 `;
 
 function LoginWrapper(){
