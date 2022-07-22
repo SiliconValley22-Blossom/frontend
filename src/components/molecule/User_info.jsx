@@ -5,15 +5,15 @@ import {User} from '@styled-icons/boxicons-regular/User';
 const StyledUser = styled.div`
     width: 10rem;
     height: 10rem;
-    margin: 4rem 2rem 0.5rem 15rem;
+    margin: 4.5rem 1rem 0.5rem 4rem;
     padding: 2rem 110px 9rem 2rem;
     border-radius: 2rem;
-    background-color: #ededed;
+    background-color: var(--grey);
+    
     .User{
         width: 4rem;
         height: 4rem;
         color: gray;
-        margin-right: 6rem ;
     }
 `;
 

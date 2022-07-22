@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const StyledLogin = styled.div`
-  margin: 4.5rem auto;
+  margin: 8rem auto;
   width: 50%;
   background: var(--main-purple);
   border-radius: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
 `;
 
 // function login(){

@@ -1,10 +1,11 @@
 import React from 'react';
 import NavBar from './components/molecule/NavBar/NavBar';
-import Home from './components/page/Home'
-import MyPage from './components/page/MyPage'
-import Login from './components/page/Login'
-import SignUp from './components/page/SignUp'
-import PhotoChange from './components/page/PhotoChange'
+import Home from './components/page/Home';
+import MyPage from './components/page/MyPage';
+import Login from './components/page/Login';
+import SignUp from './components/page/SignUp';
+import PhotoChange from './components/page/PhotoChange';
+import Footer from './components/molecule/Footer'
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
@@ -24,6 +25,7 @@ function App() {
           <Route path = "/PhotoChange" component = {PhotoChange}/>
           <Route path = "/MyPage" component = {MyPage}/>
         </Switch>
+        <Footer/>
       </BrowserRouter>
   );
 }
