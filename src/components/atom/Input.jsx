@@ -9,12 +9,10 @@ const StyledInput= styled.input`
 `;
 
 function Input(props){
-    const [text,setText] = useState('');
-    const onChange=(e) => { setText(e.target.value);};
     
     return (
     <div>
-      <StyledInput type={props.type} placeholder={props.name} onChange={onChange} value={text}></StyledInput>
+      <StyledInput type={props.type} placeholder={props.name} onChange={props.onChange}></StyledInput>
   
     </div>
     )    

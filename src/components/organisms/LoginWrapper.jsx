@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "../atom/Button";
 import TextLink from "../atom/TextLink";
 import Input from "../atom/Input";
@@ -28,13 +28,38 @@ const StyledLogin = styled.div`
 // }
   
 function LoginWrapper(){
+  const [inputs, setInputs] = useState({
+    email : '',
+    password:''
+  })
+   
+
+
+    const postLogin = (ev) => {
+      ev.preventDefault();
+      const data = JSON.stringify(
+        {
+          "email":inputs['email'],
+          "password": inputs['password']
+        });
+
+        console.log(data);
+      axios({
+        url: "/api/login",
+        method: "post",
+        data: {data}
+      }).then((response) => {});
+    
+    }
+
     return(
       <StyledLogin>
-        <Input name="ID" type="text"></Input>
-        <Input name="PW" type="password"></Input>
+        <form onSubmit={postLogin}>
+        <Input name="ID" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+        <Input name="PW" type="password" onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
 
         <Button >로그인</Button>
-
+        </form>
         <br/><TextLink>회원가입</TextLink>
         <TextLink>ID/PW찾기</TextLink>
         </StyledLogin>
