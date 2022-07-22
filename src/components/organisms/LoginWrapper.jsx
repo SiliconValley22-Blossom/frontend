@@ -14,20 +14,6 @@ const StyledLogin = styled.div`
   padding-bottom: 2rem;
 `;
 
-// function login(){
-//   const body={
-//     "email":"asdf",
-//     "password": "asdf"
-//   }
-//   body.append('file',this.uploadInput.files[0])
-//   body.append('filename',this.fileName.vaule);
-//   axios({
-//       method: "post",
-//       url: "/api/login",
-//       data: body
-
-//   }).then((response) => {})
-// }
   
 function LoginWrapper(){
   const [inputs, setInputs] = useState({
@@ -37,20 +23,26 @@ function LoginWrapper(){
    
 
 
-    const postLogin = (ev) => {
-      ev.preventDefault();
-      const data = JSON.stringify(
-        {
-          "email":inputs['email'],
-          "password": inputs['password']
-        });
+const postLogin = (ev) => {
+  if(inputs===""){
+    window.alert("아이디와 비밀번호를 입력해주세요!");
+    return ;
+  }
+    ev.preventDefault();
+    const data = JSON.stringify(
+      {
+        "email":inputs['email'],
+        "password": inputs['password']
+      });
 
-        console.log(data);
-      axios({
+    console.log(data);
+    axios({
         url: "/api/login",
         method: "post",
         data: {data}
-      }).then((response) => {});
+      }).then((response) => {
+        window.alert("로그인 성공!");
+      });
     
     }
 
@@ -60,7 +52,7 @@ function LoginWrapper(){
         <Input name="ID" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
         <Input name="PW" type="password" onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
 
-        <Button >로그인</Button>
+        <Button>로그인</Button>
         </form>
         <br/><TextLink>회원가입</TextLink>
         <TextLink>ID/PW찾기</TextLink>

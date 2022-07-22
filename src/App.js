@@ -14,8 +14,10 @@ axios.defaults.baseURL='http://localhost:5000';
 axios.defaults.withCredentials = true;
 
 
+
 function App() {
   return (
+    <div>
       <BrowserRouter>
         <NavBar/>
         <Switch>
@@ -27,6 +29,7 @@ function App() {
         </Switch>
         <Footer/>
       </BrowserRouter>
+    </div>
   );
 }
 
