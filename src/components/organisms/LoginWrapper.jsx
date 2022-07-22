@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import Button from "../atom/Button";
 import TextLink from "../atom/TextLink";
 import Input from "../atom/Input";
@@ -21,6 +22,7 @@ function LoginWrapper(){
     password:''
   })
    
+  const history=useHistory();
 
 
 const postLogin = (ev) => {
@@ -42,6 +44,7 @@ const postLogin = (ev) => {
         data: {data}
       }).then((response) => {
         window.alert("로그인 성공!");
+        return history.push("/");
       });
     
     }
