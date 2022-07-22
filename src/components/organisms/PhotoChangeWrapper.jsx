@@ -10,7 +10,7 @@ const StyledPhotoChange = styled.div`
   margin: 4.5rem auto;
 `;
 
-const PhotoChange = () => {
+const PhotoChangeWrapper = () => {
     const [file, setFile] = useState('');
 
 
@@ -51,4 +51,4 @@ const PhotoChange = () => {
     )
 }
 
-export default PhotoChange;
+export default PhotoChangeWrapper;
