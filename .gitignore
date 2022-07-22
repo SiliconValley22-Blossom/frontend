@@ -82,6 +82,7 @@ sketch
 # Ignore code-workspaces
 *.code-workspace
 
-
+yarn.lock
+package-lock.json
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,react,git
