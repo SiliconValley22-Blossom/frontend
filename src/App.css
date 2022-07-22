@@ -1,10 +1,13 @@
 :root{
   --main-pink: #f7ccca;
+  --sub-pink: #ff8fad;
   --main-green: #CFEBD4;
   --main-purple: #d8d1e1;
   --main-white: white;
   --main-gray: #f4f4f4;
   --sub-text: black;
+  --grey : #ededed;
+  --dark-grey:#585858;
 }
 img{
   max-width: 100%;
@@ -18,6 +21,9 @@ img{
 .photochange,
 .mypage,
 .login{
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 30vh;
   text-align: center;
 }
 .home{
