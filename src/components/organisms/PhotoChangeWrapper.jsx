@@ -31,20 +31,16 @@ const PhotoChangeWrapper = () => {
 
     return(
         <StyledPhotoChange>
-            <div style={{alignItems: "center", justifyContent: "center", }}>
-            
-            </div>
-            <div style={imageStyle}>{fileImage && ( <img alt="sample" src={fileImage}
-                                        style={{ margin: "auto" }} /> )}
-            </div>
-            <input
-                name="imggeUpload"
-                type="file"
-                accept="image/*"
-                onChange={saveFileImage} />
+            <div style={{alignItems: "center", justifyContent: "center", }}></div>
+            <div style={imageStyle}>{fileImage && ( <img alt="sample" src={fileImage} style={{ margin: "auto" }} /> )}</div>
+            <form onSubmit={handleUpload} >
+              <input
+                  name="imggeUpload"
+                  type="file"
+                  accept="image/*"
+                  onChange={saveFileImage} />
+            </form> 
         </StyledPhotoChange>
-                <form onSubmit={handleUpload} >
-                </form> 
     )
 }
 
