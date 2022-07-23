@@ -30,24 +30,21 @@ const PhotoChangeWrapper = () => {
     }
 
     return(
-            <StyledPhotoChange>
+        <StyledPhotoChange>
+            <div style={{alignItems: "center", justifyContent: "center", }}>
+            
+            </div>
+            <div style={imageStyle}>{fileImage && ( <img alt="sample" src={fileImage}
+                                        style={{ margin: "auto" }} /> )}
+            </div>
+            <input
+                name="imggeUpload"
+                type="file"
+                accept="image/*"
+                onChange={saveFileImage} />
+        </StyledPhotoChange>
                 <form onSubmit={handleUpload} >
-                    <div style = {{display : 'flex'}}>
-                        {<Display></Display>}
-                        {<Display></Display>}
-                    </div>
-
-                <div>
-                    <div className="upload">
-                        <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])}/>
-                        <Button type="submit">업로드</Button>
-                        
-                    </div>
-                    <DownloadButton/>
-                </div>
                 </form> 
-                
-            </StyledPhotoChange>
     )
 }
 
