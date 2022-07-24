@@ -1,47 +1,112 @@
-import React, {useState} from 'react';
-import '../../App.css'
+import React, { useState, useCallback, useEffect, useRef } from "react";
+import styled from "styled-components";
+import axios from "axios";
 import Button from "../atom/Button";
-import DownloadButton from '../atom/DownloadButton';
-import Display from '../atom/Display';
-import styled from 'styled-components';
-import axios from 'axios';
+import NavBar from '../molecule/NavBar/NavBar_colorize';
 
-const StyledPhotoChange = styled.div`
-  margin: 4.5rem auto;
+const StyledBackground = styled.div`
+  background: url("../images/colorizeBG.png");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const PhotoChangeWrapper = () => {
-    const [file, setFile] = useState('');
+const StyledDropDown = styled.div`
+  width: 30rem;
+  height: 40rem;
+  background-color: white;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 12rem;
+  display: flex;
+`;
 
+const HorizonLine = () => {
+    return (
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          borderBottom: "1px solid white",
+          lineHeight: "0.1em"
+        }}>
+      </div>
+    );
+  };
 
-    const handleUpload = (ev) => {
-        ev.preventDefault();
-        console.log(file);
-        const formData = new FormData();
-        formData.append("file", file)
-        
-        axios({
-            url: "/api/photos",
-            method: "post",
-            data: formData,
-            headers: {'Content-Type': 'multipart/form-data'}
-        }).then((response) =>{})
+const DragDrop = () => {
+  const [file, setFile] = useState("");
+  const [imageView, setImageView] = useState("");
+
+  const encodeFileToBase64 = (fileBlob) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(fileBlob);
+    return new Promise((resolve) => {
+      reader.onload = () => {
+        setImageView(reader.result);
+        resolve();
+      };
+    });
+  };
+
+  const handleUpload = (ev) => {
+    ev.preventDefault();
     
-    }
+    const formData = new FormData();
+    formData.append("file", file)
+    
+    axios({
+        url: "/api/photos",
+        method: "post",
+        data: formData,
+        headers: {'Content-Type': 'multipart/form-data'}
+    }).then((response) =>{})
+  }
 
-    return(
-        <StyledPhotoChange>
-            <div style={{alignItems: "center", justifyContent: "center", }}></div>
-            <div style={imageStyle}>{fileImage && ( <img alt="sample" src={fileImage} style={{ margin: "auto" }} /> )}</div>
-            <form onSubmit={handleUpload} >
-              <input
-                  name="imggeUpload"
-                  type="file"
-                  accept="image/*"
-                  onChange={saveFileImage} />
-            </form> 
-        </StyledPhotoChange>
-    )
-}
+  return (
+    <StyledBackground>
+        <NavBar/>
+        <HorizonLine/>
+      <form onSubmit={handleUpload} >
+      <label style={{ zIndex: "8" }}>
+        <StyledDropDown>
+          {file == "" ? (
+            <img
+              src="images/dragAndDrop.png"
+              style={{ margin: "auto auto auto auto" }}
+            />
+          ) : (
+            <img
+              src={imageView}
+              style={{
+                margin: "auto auto auto auto",
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </StyledDropDown>
+        <input
+          type="file"
+          id="fileUpload"
+          style={{ display: "none" }}
+          multiple={false}
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+            encodeFileToBase64(e.target.files[0]);
+          }}
+        />
+      </label>
 
-export default PhotoChangeWrapper;
+      <Button>colorize</Button>
+      </form>
+    </StyledBackground>
+  );
+};
+
+export default DragDrop;
