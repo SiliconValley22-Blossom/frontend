@@ -1,5 +1,5 @@
 .navbar-logo{
-    color: white;
+    color: var(--main-white);
     margin-top: 3rem;
     margin-left: 4rem;
     cursor: pointer;
@@ -28,7 +28,7 @@
 .nav-links{
     color: var(--main-pink);
     text-decoration : none;
-    padding: 1rem 1.5rem;
+    padding: 1vh 1.5rem;
 }
 .nav-links:hover{
     background-color : #ff92e4;
