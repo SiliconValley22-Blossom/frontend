@@ -3,6 +3,7 @@
   --sub-pink: #ff8fad;
   --main-green: #CFEBD4;
   --main-purple: #d8d1e1;
+  --sub-purple: #b29cd3;
   --main-white: white;
   --main-gray: #f4f4f4;
   --sub-text: black;
@@ -18,12 +19,10 @@ img{
 }
 .home,
 .signup,
-.photochange,
+.colorize,
 .mypage,
 .login{
-  height: auto;
   min-height: 100%;
-  padding-bottom: 30vh;
   text-align: center;
 }
 .home{

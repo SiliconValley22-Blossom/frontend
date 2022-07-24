@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Button from "../atom/Button";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 
 const StyledBackground = styled.div`
@@ -21,10 +20,27 @@ const StyledDropDown = styled.div`
   width: 30rem;
   height: 40rem;
   background-color: white;
-  border-radius: 50px;
-  margin: auto;
-  margin-top: 12rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 3rem;
+  margin-top: 4rem;
   display: flex;
+`;
+
+const ColorizeButton = styled.button`
+padding: 1rem 2rem;
+border-radius: 1rem;
+border-style: solid;
+border-color: var(--sub-purple);
+color: white;
+text-align: center;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+width: 12rem;
+margin-top: 2rem;
+cursor: pointer;
+font-size: 1.1rem;
+font-weight: bold;
+background: var(--dark-grey)
+
 `;
 
 const HorizonLine = () => {
@@ -39,6 +55,7 @@ const HorizonLine = () => {
       </div>
     );
   };
+
 
 const DragDrop = () => {
   const [file, setFile] = useState("");
@@ -103,7 +120,7 @@ const DragDrop = () => {
         />
       </label>
 
-      <Button>colorize</Button>
+      <ColorizeButton>colorize!</ColorizeButton>
       </form>
     </StyledBackground>
   );

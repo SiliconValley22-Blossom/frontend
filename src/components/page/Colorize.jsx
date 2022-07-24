@@ -1,14 +1,14 @@
 import "../../App.css";
 import React from "react";
 //import PhotoChangeWrapper from '../organisms/PhotoChangeWrapper';
-import DragDrop from "../organisms/PhotoChangeWrapper";
+import DragDrop from "../organisms/ColorizeWrapper";
 
-function PhotoChange() {
+function Colorize() {
   return (
-    <div className="photochange">
+    <div className="colorize">
       <DragDrop />
     </div>
   );
 }
 
-export default PhotoChange;
+export default Colorize;
