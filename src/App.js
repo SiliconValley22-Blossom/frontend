@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './components/molecule/NavBar/NavBar';
 import Home from './components/page/Home';
 import MyPage from './components/page/MyPage';
 import Login from './components/page/Login';
@@ -19,7 +18,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <NavBar/>
         <Switch>
           <Route path = "/" exact component = {Home}/>
           <Route path = "/Login" component = {Login}/>
@@ -27,7 +25,6 @@ function App() {
           <Route path = "/PhotoChange" component = {PhotoChange}/>
           <Route path = "/MyPage" component = {MyPage}/>
         </Switch>
-        <Footer/>
       </BrowserRouter>
     </div>
   );
