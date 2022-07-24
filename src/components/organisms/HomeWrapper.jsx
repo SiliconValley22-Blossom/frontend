@@ -4,7 +4,7 @@ import TextLink from "../atom/TextLink";
 import Input from "../atom/Input";
 import styled from 'styled-components';
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import PhotoChange from '../page/PhotoChange'
+import Colorize from '../page/Colorize'
 
 const StyledLogin = styled.div`
   margin: 4.5rem auto;
@@ -21,7 +21,7 @@ function HomeWrapper(){
                     <Button>Start colorizing</Button>
                 </Link>
                 <Switch>
-                    <Route path = "/PhotoChange" component = {PhotoChange}/>
+                    <Route path = "/Colorize" component = {Colorize}/>
                 </Switch>
             </Router>
         </StyledLogin>
