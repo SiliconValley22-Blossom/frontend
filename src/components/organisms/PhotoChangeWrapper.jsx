@@ -2,7 +2,8 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Button from "../atom/Button";
-import NavBar from '../molecule/NavBar/NavBar_colorize';
+import NavBar from "../molecule/NavBar/NavBar_colorize";
+import { useHistory } from "react-router-dom";
 
 const StyledBackground = styled.div`
   background: url("../images/colorizeBG.png");
@@ -23,22 +24,22 @@ const StyledDropDown = styled.div`
   background-color: white;
   border-radius: 50px;
   margin: auto;
-  margin-top: 12rem;
+  margin-top: 5rem;
   display: flex;
 `;
 
 const HorizonLine = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          borderBottom: "1px solid white",
-          lineHeight: "0.1em"
-        }}>
-      </div>
-    );
-  };
+  return (
+    <div
+      style={{
+        width: "100%",
+        textAlign: "center",
+        borderBottom: "1px solid white",
+        lineHeight: "0.1em",
+      }}
+    ></div>
+  );
+};
 
 const DragDrop = () => {
   const [file, setFile] = useState("");
@@ -55,55 +56,59 @@ const DragDrop = () => {
     });
   };
 
+  const history = useHistory();
+
   const handleUpload = (ev) => {
     ev.preventDefault();
-    
+
     const formData = new FormData();
-    formData.append("file", file)
-    
+    formData.append("file", file);
+
     axios({
-        url: "/api/photos",
-        method: "post",
-        data: formData,
-        headers: {'Content-Type': 'multipart/form-data'}
-    }).then((response) =>{})
-  }
+      url: "/api/photos",
+      method: "post",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {});
+
+    return history.push("/ColorizeFinish");
+  };
 
   return (
     <StyledBackground>
-        <NavBar/>
-        <HorizonLine/>
-      <form onSubmit={handleUpload} >
-      <label style={{ zIndex: "8" }}>
-        <StyledDropDown>
-          {file == "" ? (
-            <img
-              src="images/dragAndDrop.png"
-              style={{ margin: "auto auto auto auto" }}
-            />
-          ) : (
-            <img
-              src={imageView}
-              style={{
-                margin: "auto auto auto auto",
-                objectFit: "cover",
-              }}
-            />
-          )}
-        </StyledDropDown>
-        <input
-          type="file"
-          id="fileUpload"
-          style={{ display: "none" }}
-          multiple={false}
-          onChange={(e) => {
-            setFile(e.target.files[0]);
-            encodeFileToBase64(e.target.files[0]);
-          }}
-        />
-      </label>
+      <NavBar />
+      <HorizonLine />
+      <form onSubmit={handleUpload}>
+        <label style={{ zIndex: "8" }}>
+          <StyledDropDown>
+            {file == "" ? (
+              <img
+                src="images/dragAndDrop.png"
+                style={{ margin: "auto auto auto auto" }}
+              />
+            ) : (
+              <img
+                src={imageView}
+                style={{
+                  margin: "auto auto auto auto",
+                  objectFit: "cover",
+                }}
+              />
+            )}
+          </StyledDropDown>
+          <input
+            type="file"
+            id="fileUpload"
+            style={{ display: "none" }}
+            multiple={false}
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+              encodeFileToBase64(e.target.files[0]);
+            }}
+          />
+        </label>
 
-      <Button>colorize</Button>
+        <Button>colorize</Button>
       </form>
     </StyledBackground>
   );
