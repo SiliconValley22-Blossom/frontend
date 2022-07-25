@@ -1,4 +1,5 @@
 FROM node:18.4.0-alpine
+USER root
 
 WORKDIR /frontend
 COPY . /frontend
@@ -9,8 +10,6 @@ ENV REACT_APP_HOST_IP_ADDRESS $API_URL
 ENV REACT_APP_BACKEND_URL $REACT_APP_BACKEND_URL
 
 RUN yarn --ignore-platform
-
-
 COPY . ./
 
 # build file을 개발용에서는 불러오지 않기 때문에 개발용에서는 npm start 가능
