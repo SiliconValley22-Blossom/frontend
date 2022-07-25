@@ -3,7 +3,7 @@ import Button from "../atom/Button";
 import styled from 'styled-components';
 import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
-import scrollbar from 'smooth-scrollbar'
+import '../../App.css'
 
 
 const StyledContainer = styled.div`
@@ -34,10 +34,11 @@ const StyledPics = styled.div`
     background: white;
     width: 18rem;
     height: 18rem;
-    margin: 1rem;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
 `;
 
 const StyledImage = styled.div`
@@ -52,7 +53,7 @@ const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1px;
+    grid-gap: 1rem;
     margin: auto;
     flex: 1;
     align-items: center;
@@ -60,8 +61,19 @@ const StyledWrapper = styled.div`
     height: 95vh;
 
     overflow: auto;
-
-
+    &::-webkit-scrollbar{
+      width: 11px;
+      height: 8px;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #eeeeee;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: linear-gradient(#f7ccca, #d8d1e1);
+      border-radius: 10px;
+    }
 `
 
 const MyPageWrapper= () => {
@@ -109,10 +121,12 @@ const MyPageWrapper= () => {
       <StyledContainer>
         <NavBar/>
         <HorizonLine/>
-        <StyledWrapper>
-          {imageRander}
+          <StyledWrapper>
+            
+            {imageRander}
 
-        </StyledWrapper>
+          </StyledWrapper>
+        
               
       </StyledContainer>
   );
