@@ -1,25 +1,10 @@
 import React, { useState } from 'react';
 import Button from "../atom/Button";
-import TextLink from "../atom/TextLink";
 import Input from "../atom/Input";
 import styled from 'styled-components';
 import axios from 'axios';
 import signUp from './SignUpWrapper'
 import { useHistory, Link, Route, BrowserRouter as Router } from "react-router-dom";
-
-const StyledContainer = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../img/color-gray.png');
-    background-size: cover;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-`;
 
 const StyledLogin = styled.div`
   margin: 8rem auto;
@@ -78,7 +63,7 @@ function LoginWrapper(){
     }
 
     return(
-      <StyledContainer>
+      <>
         <StyledLogin>
         <form onSubmit={postLogin}>
         <Input name="Email" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
@@ -86,16 +71,11 @@ function LoginWrapper(){
 
         <Button>Sign In</Button>
         </form>
-        <Router>
-            <Link to="/signUp">
-                <button style={btnStyle}>Are you not a member ?</button>
-            </Link>
-            <main>
-                <Route path="/signUp" component={signUp}/>
-            </main>
-            </Router>
+        <Link to="/signUp">
+            <button style={btnStyle}>Are you not a member ?</button>
+        </Link>
         </StyledLogin>
-      </StyledContainer>
+      </>
     )
   }
 
