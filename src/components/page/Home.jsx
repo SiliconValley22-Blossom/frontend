@@ -41,7 +41,7 @@ function Home(){
 
     return (
         <StyledContainer>
-            <img style={{width: '30rem'}} alt="blossomLogo" src="../logo-1.png"/>
+            <img style={{width: '30rem'}} alt="blossomLogo" src="../PurpleLogo-BOutline.png"/>
             <Link to="/login"><Button>Start Colorizing</Button></Link>
         </StyledContainer>
         
