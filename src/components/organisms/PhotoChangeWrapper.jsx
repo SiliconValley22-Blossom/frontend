@@ -81,7 +81,7 @@ const DragDrop = () => {
       <form onSubmit={handleUpload}>
         <label style={{ zIndex: "8" }}>
           <StyledDropDown>
-            {file == "" ? (
+            {file === "" ? (
               <img
                 src="images/dragAndDrop.png"
                 style={{ margin: "auto auto auto auto" }}
