@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import styled from 'styled-components';
 
 const StyledInput= styled.input`
+<<<<<<< Updated upstream
   margin-top: 2rem;
   border-radius: 3rem;
   padding: 1rem 2rem;

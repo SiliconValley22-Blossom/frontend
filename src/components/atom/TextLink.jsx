@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledTextLink = styled.button`
-    background-color: var(--main-purple);
+const StyledTextLink = styled.text`
+    background-color: var(--main-white);
     border: 0;
-    color: white;
+    color: #BBBBBB;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: rem;
     font-weight: bold;
 `;
 

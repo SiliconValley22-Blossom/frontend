@@ -2,6 +2,8 @@ import React from 'react';
 import '../../App.css'
 import divStyle from '../../App.css'
 import btnDivStyle from '../../App.css'
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import Login from "./Login";
 
 
 function Home(){
@@ -17,11 +19,17 @@ function Home(){
         color:"gray",
         fontWeight:"bold"
       };
+
     return (
-        <div className={divStyle} style={{background: 'url(../../blossom_background.png)'}}>
-            <button style={btnStyle}>
-                Blossom
-            </button>
+        <div className={divStyle} style={{background: 'url(../../../public/blossom_background.png)'}}>
+            <Router>
+                <Link to="/login">
+                    <button style={btnStyle}>Blossom</button>
+                </Link>
+                <main>
+                    <Route path="/login" component={Login}/>
+                </main>
+            </Router>
         </div>
     )
 };

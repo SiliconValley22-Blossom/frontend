@@ -2,13 +2,17 @@
   --main-pink: #f7ccca;
   --sub-pink: #ff8fad;
   --main-green: #CFEBD4;
+<<<<<<< Updated upstream
   --main-purple: #d8d1e1;
   --sub-purple: #b29cd3;
+=======
+  --sub-gray: #BBBBBB;
+>>>>>>> Stashed changes
   --main-white: white;
   --main-gray: #f4f4f4;
   --sub-text: black;
   --grey : #ededed;
-  --dark-grey:#585858;
+  --dark-grey:#8C8888;
   margin: 0 auto;
   height: 100%;
   width: 100%;
@@ -21,6 +25,7 @@ img{
 .App {
   text-align: center;
 }
+<<<<<<< Updated upstream
 .home,
 .signup,
 .colorize,
@@ -29,6 +34,9 @@ img{
   min-height: 100%;
   text-align: center;
 }
+=======
+
+>>>>>>> Stashed changes
 .home{
   color:black;
   font-size: 10px;;
@@ -36,7 +44,7 @@ img{
 
 body{
   font-family: 'nanumsquare';
-  background-image: url(./blossom_background.png);
+  background-image: url(../public/blossom_background.png);
   background-size: cover;
   text-align: center;
   flex-direction: row;
