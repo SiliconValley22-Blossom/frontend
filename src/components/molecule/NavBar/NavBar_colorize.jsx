@@ -43,7 +43,7 @@ function NavBar(){
         <StyledHeader>
             <Link to ='/' className='navbar-logo'>
                 Blossom
-                <i class = 'fas fa-trillium'/>
+                <i className = 'fas fa-trillium'/>
             </Link>
             
             <div className = "menu-icon" onClick = {handleClick}>
