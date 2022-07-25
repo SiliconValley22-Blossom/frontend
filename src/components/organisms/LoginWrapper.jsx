@@ -50,13 +50,12 @@ function LoginWrapper(){
   })
    
   const history=useHistory();
-
-
-const postLogin = (ev) => {
-  if(inputs===""){
-    window.alert("아이디와 비밀번호를 입력해주세요.");
-    return ;
-  }
+  
+  const postLogin = (ev) => {
+    if(inputs===""){
+      window.alert("아이디와 비밀번호를 입력해주세요.");
+      return ;
+    }
     ev.preventDefault();
     const data = JSON.stringify(
       {
@@ -76,7 +75,6 @@ const postLogin = (ev) => {
         }
         return history.push("/Colorize");
       });
-    
     }
 
     return(
