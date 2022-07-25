@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
+//import DragDropImage from '../../../img/dragAndDrop.png';
 
 const StyledBackground = styled.div`
   background: url("../images/colorizeBG.png");
@@ -24,6 +25,9 @@ const StyledDropDown = styled.div`
   border-radius: 50px;
   margin-top: 4rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
 `;
 
 const ColorizeButton = styled.button`
@@ -40,7 +44,12 @@ cursor: pointer;
 font-size: 1.1rem;
 font-weight: bold;
 background: var(--dark-grey)
+`;
 
+const DragDropImg = styled.img`
+  padding-bottom: 1rem;
+  width: 10rem;
+  height: 9rem;
 `;
 
 const HorizonLine = () => {
@@ -93,10 +102,9 @@ const DragDrop = () => {
       <form onSubmit={handleUpload} >
       <label style={{ zIndex: "8" }}>
         <StyledDropDown>
-          {file == "" ? (
-            <img
-              src="images/dragAndDrop.png"
-              style={{ margin: "auto auto auto auto" }}
+          {file === "" ? (
+            <DragDropImg
+              src="img/dragAndDrop.png"
             />
           ) : (
             <img
@@ -107,7 +115,9 @@ const DragDrop = () => {
               }}
             />
           )}
+
         </StyledDropDown>
+
         <input
           type="file"
           id="fileUpload"

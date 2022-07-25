@@ -2,13 +2,12 @@ import React,{useState} from 'react';
 import styled from 'styled-components';
 
 const StyledInput= styled.input`
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 3rem;
   padding: 1rem 2rem;
   border: none;
-  width: 17rem;
-  outline: 1px solid gray;
-  
+  width: 10rem;
+  outline: 1px solid #CDCDCD;
 `;
 
 function Input(props){

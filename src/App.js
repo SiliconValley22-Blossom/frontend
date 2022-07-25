@@ -4,7 +4,6 @@ import MyPage from './components/page/MyPage';
 import Login from './components/page/Login';
 import SignUp from './components/page/SignUp';
 import Colorize from './components/page/Colorize';
-import Footer from './components/molecule/Footer'
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';

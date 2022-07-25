@@ -3,19 +3,17 @@ import styled from 'styled-components';
 
 
 const StyledButton = styled.button`
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-radius: 1rem;
   border: none;
   color: gray;
   text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  width: 10rem;
-  margin: 2rem;
+  background: white;
+  width: 8rem;
+  margin-top: 1rem;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  display: inline-block;
-
 `;
 
 function Button  ({disabled,children}){
