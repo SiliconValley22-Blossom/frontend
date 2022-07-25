@@ -61,13 +61,17 @@ const StyledWrapper = styled.div`
     height: 95vh;
 
     overflow: auto;
-    
-    &:-webkit-file-scrollbar{
-      width: 10px;
+    &::-webkit-scrollbar{
+      width: 11px;
+      height: 8px;
+      border-radius: 10px;
     }
-    &:-webkit-scrollbar-thumb{
-      height: 30%;
-      background: var(--main-purple);
+    &::-webkit-scrollbar-track {
+      background: #eeeeee;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: linear-gradient(#f7ccca, #d8d1e1);
       border-radius: 10px;
     }
 `
@@ -117,13 +121,11 @@ const MyPageWrapper= () => {
       <StyledContainer>
         <NavBar/>
         <HorizonLine/>
-        <div className="scrollbar">
           <StyledWrapper>
             
             {imageRander}
 
           </StyledWrapper>
-        </div>
         
               
       </StyledContainer>
