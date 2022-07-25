@@ -25,11 +25,19 @@ img{
 
 .home,
 .signup,
-.colorize,
-.mypage,
 .login{
   min-height: 100%;
   text-align: center;
+}
+.mypage,
+.colorize{
+  height: 100vh;
+  text-align: center;
+  background: url(../public/images/colorizeBG.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
 }
 
 .home{

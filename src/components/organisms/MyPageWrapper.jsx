@@ -4,30 +4,6 @@ import User_info from "../molecule/User_info";
 import styled from 'styled-components';
 import NavBar from '../molecule/NavBar/NavBar_mypage';
 
-
-const StyledContainer = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: url('../img/mypage.png');
-    background-size: cover;
-`;
-
-const HorizonLine = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          borderBottom: "1px solid rgb(171, 171, 171)",
-          lineHeight: "0.1em"
-        }}>
-      </div>
-    );
-  };
-
 const StyledPics = styled.div`
     background: white;
     width: 12rem;
@@ -42,7 +18,7 @@ const StyledWrapper = styled.div`
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1px;
-    margin: auto;
+    margin: 2rem auto;
     flex: 1;
     align-items: center;
     width: 60rem;
@@ -57,9 +33,8 @@ const StyledUserBtns = styled.div`
 
 function MyPageWrapper(){
     return(
-            <StyledContainer>
+            <>
                 <NavBar/>
-                <HorizonLine/>
                 <StyledWrapper>
                     <StyledPics/>
                     <StyledPics/>
@@ -72,7 +47,7 @@ function MyPageWrapper(){
                     <StyledPics/>
                 </StyledWrapper>
                 
-            </StyledContainer>
+            </>
             
               
 // {/*  
