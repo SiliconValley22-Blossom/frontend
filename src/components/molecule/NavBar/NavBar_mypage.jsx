@@ -9,7 +9,7 @@ const HeaderMyPage = styled.nav`
     display: inline-block;
     border-style: solid none;
     border-color: transparent transparent white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight : bold;
     `;
 
