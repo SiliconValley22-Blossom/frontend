@@ -13,11 +13,14 @@ const StyledContainer = styled.div`
     height: 100%;
     background: url('../img/color-gray.png');
     background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 `;
 
 const StyledSignUp = styled.div`
-  margin: 9rem auto;
-  width: 30rem;
+  width: 20rem;
   padding-top: 3rem; 
   padding-bottom: 1.5rem;
   background: var(--main-white);
@@ -72,10 +75,10 @@ function SignUpWrapper(){
       <StyledContainer>
         <StyledSignUp>
         <form onSubmit={postSignup}>
-          <Input type="text" name='email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-          <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-          <Input type="password" name='check password' value={passwordCheck} onChange={onpasswordCheck}></Input>
-          <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
+          <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input type="password" name='Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='Check password' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <Input type="text" name='Nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
         <Button>Sign Up</Button>
         </form>
         

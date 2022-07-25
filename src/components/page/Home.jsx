@@ -1,36 +1,50 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../App.css'
 import divStyle from '../../App.css'
-import btnDivStyle from '../../App.css'
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import Login from "./Login";
+import styled from 'styled-components';
 
+const StyledContainer = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/color-gray.png');
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`;
+
+const Button = styled.button`
+  padding: 0.5rem 0.8rem;
+  border-radius: 1rem;
+  border: none;
+  color: gray;
+  text-align: center;
+  background: #EBEBEB;
+  width: 11rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: semi-bold;
+  margin-top: 35px;
+  &:hover{  
+    background: #F7CCCA;
+    color : #D05968;
+  }
+  `;
 
 function Home(){
-    
-    const btnStyle = {
-        color: "white",
-        background: "#EBEBEB",
-        padding: ".5rem .8rem",
-        border: "0px solid teal",
-        borderRadius: "1rem",
-        fontSize: "1.2rem",
-        width:"12rem",
-        color:"gray",
-        fontWeight:"bold"
-      };
 
     return (
-        <div className={divStyle} style={{background: 'url(../../../public/blossom_background.png)'}}>
-            <Router>
-                <Link to="/login">
-                    <button style={btnStyle}>Blossom</button>
-                </Link>
-                <main>
-                    <Route path="/login" component={Login}/>
-                </main>
-            </Router>
-        </div>
+        <StyledContainer>
+            <img style={{width: '30rem'}} alt="blossomLogo" src="../logo-1.png"/>
+            <Link to="/login"><Button>Start Colorizing</Button></Link>
+        </StyledContainer>
+        
     )
 };
 
