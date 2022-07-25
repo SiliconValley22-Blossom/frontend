@@ -46,6 +46,24 @@ function SignUpWrapper(){
   const postSignup = (ev) =>{
     ev.preventDefault();
 
+    if(inputs['email']===""){
+      window.alert("이메일을 입력해주세요.");
+      return ;
+    }
+    else if(inputs['password']===""){
+      window.alert("비밀번호를 입력해주세요.")
+      return ;
+    }
+    else if(passwordCheck===""){
+      window.alert("비밀번호를 확인해주세요.")
+      return ;
+    }
+    else if(inputs['nickname']===""){
+      window.alert("닉네임을 입력해주세요.")
+      return ;
+    }
+
+    
     const data= JSON.stringify(
       {
         "email": inputs['email'],
@@ -56,14 +74,13 @@ function SignUpWrapper(){
       if(inputs['password'] !== passwordCheck){
         return alert("비밀번호가 일치하지 않습니다!")
       }
-      
 
       axios({
         url: "/api/users",
         method: "post",
         data:{data}
       }).then((res) => {
-        window.alert("가입이 완료 되었습니다!");
+        window.alert("회원가입 완료 !");
         return history.push("/Login");
       })
       .catch((error)=>{
