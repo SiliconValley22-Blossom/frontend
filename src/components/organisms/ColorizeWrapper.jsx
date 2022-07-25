@@ -9,7 +9,7 @@ const StyledDropDown = styled.div`
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 50px;
-  margin: 5rem auto 2rem;
+  margin: 3rem auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,20 +17,20 @@ const StyledDropDown = styled.div`
 `;
 
 const ColorizeButton = styled.button`
-padding: 1rem 2rem;
-border-radius: 1rem;
-border-style: solid;
-border-color: var(--sub-purple);
-color: white;
-text-align: center;
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-width: 12rem;
-margin-top: 2rem;
-cursor: pointer;
-font-size: 1.1rem;
-font-weight: bold;
-background: var(--dark-grey)
-`;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--sub-purple);
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 12rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: var(--dark-grey)
+  `;
 
 const DragDropImg = styled.img`
   padding-bottom: 1rem;

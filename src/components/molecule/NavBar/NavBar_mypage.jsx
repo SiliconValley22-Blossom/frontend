@@ -18,7 +18,7 @@ function NavBar(){
     return(
         <HeaderMyPage>
             <Link to ='/' className='navbar-logo-mypage'>
-                Blossom
+            <img style={{width: '11rem'}} alt="blossomLogo" src="../../../../logo-4.png"/>
             </Link>
             
             <ul className= 'nav-menu'>
