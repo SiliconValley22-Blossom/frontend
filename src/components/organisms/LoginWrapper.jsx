@@ -52,10 +52,15 @@ function LoginWrapper(){
   const history=useHistory();
   
   const postLogin = (ev) => {
-    if(inputs===""){
-      window.alert("아이디와 비밀번호를 입력해주세요.");
+    if(inputs['email']===""){
+      window.alert("이메일을 입력해주세요.");
       return ;
     }
+    else if(inputs['password']===""){
+      window.alert("비밀번호를 입력해주세요.")
+      return ;
+    }
+    console.log(inputs)
     ev.preventDefault();
     const data = JSON.stringify(
       {
