@@ -5,20 +5,6 @@ import Button from "../atom/Button";
 import styled from 'styled-components';
 import axios from 'axios';
 
-const StyledContainer = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../img/color-gray.png');
-    background-size: cover;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-`;
-
 const StyledSignUp = styled.div`
   width: 20rem;
   padding-top: 3rem; 
@@ -89,7 +75,7 @@ function SignUpWrapper(){
   }
 
     return(
-      <StyledContainer>
+      <>
         <StyledSignUp>
         <form onSubmit={postSignup}>
           <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
@@ -100,7 +86,7 @@ function SignUpWrapper(){
         </form>
         
         </StyledSignUp>
-      </StyledContainer>
+      </>
       
     )
   }

@@ -5,31 +5,6 @@ import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
 import '../../App.css'
 
-
-const StyledContainer = styled.div`
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: url('../img/mypage.png');
-    background-size: cover;
-    position: fixed;
-    overflow-y: hidden;
-`;
-
-const HorizonLine = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          borderBottom: "1px solid rgb(171, 171, 171)",
-          lineHeight: "0.1em"
-        }}>
-      </div>
-    );
-  };
-
 const StyledPics = styled.div`
     background: white;
     width: 18rem;
@@ -53,8 +28,8 @@ const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1rem;
-    margin: auto;
+    grid-gap: 1px;
+    margin: 2rem auto;
     flex: 1;
     align-items: center;
     width: 65rem;

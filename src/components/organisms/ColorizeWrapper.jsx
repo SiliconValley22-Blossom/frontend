@@ -2,20 +2,6 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
-//import DragDropImage from '../../../img/dragAndDrop.png';
-
-const StyledBackground = styled.div`
-  background: url("../images/colorizeBG.png");
-  background-size: cover;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const StyledDropDown = styled.div`
   width: 30rem;
@@ -23,7 +9,7 @@ const StyledDropDown = styled.div`
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 50px;
-  margin-top: 4rem;
+  margin: 3rem auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,20 +17,20 @@ const StyledDropDown = styled.div`
 `;
 
 const ColorizeButton = styled.button`
-padding: 1rem 2rem;
-border-radius: 1rem;
-border-style: solid;
-border-color: var(--sub-purple);
-color: white;
-text-align: center;
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-width: 12rem;
-margin-top: 2rem;
-cursor: pointer;
-font-size: 1.1rem;
-font-weight: bold;
-background: var(--dark-grey)
-`;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--sub-purple);
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 12rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: var(--dark-grey)
+  `;
 
 const DragDropImg = styled.img`
   padding-bottom: 1rem;
@@ -52,18 +38,6 @@ const DragDropImg = styled.img`
   height: 9rem;
 `;
 
-const HorizonLine = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          borderBottom: "1px solid white",
-          lineHeight: "0.1em"
-        }}>
-      </div>
-    );
-  };
 
 
 const DragDrop = () => {
@@ -94,11 +68,10 @@ const DragDrop = () => {
         headers: {'Content-Type': 'multipart/form-data'}
     }).then((response) =>{})
   }
-
+  
   return (
-    <StyledBackground>
+    <>
         <NavBar/>
-        <HorizonLine/>
       <form onSubmit={handleUpload} >
       <label style={{ zIndex: "8" }}>
         <StyledDropDown>
@@ -132,7 +105,7 @@ const DragDrop = () => {
 
       <ColorizeButton>colorize!</ColorizeButton>
       </form>
-    </StyledBackground>
+    </>
   );
 };
 
