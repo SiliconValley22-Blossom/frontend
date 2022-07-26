@@ -8,8 +8,8 @@
   --main-white: white;
   --main-gray: #f4f4f4;
   --sub-text: black;
-  --grey : #ededed;
-  --dark-grey:#8C8888;
+  --gray : #EBEBEB;
+  --dark-gray:#8C8888;
   margin: 0 auto;
   height: 100%;
   width: 100%;
@@ -22,6 +22,7 @@ img{
 .App {
   text-align: center;
 }
+
 .signup,
 .login,
 .home{
@@ -41,7 +42,7 @@ img{
   min-height: 100%;
   text-align: center;
 }
-
+.colorizefinish,
 .mypage,
 .colorize{
   height: 100vh;
