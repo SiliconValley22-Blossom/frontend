@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
+import {Link} from "react-router-dom";
 
 const StyledDropDown = styled.div`
   width: 30rem;
@@ -43,6 +44,7 @@ const DragDropImg = styled.img`
 const DragDrop = () => {
   const [file, setFile] = useState("");
   const [imageView, setImageView] = useState("");
+  const [colorPhotoId, setColorPhotoId] = useState("");
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -66,7 +68,10 @@ const DragDrop = () => {
         method: "post",
         data: formData,
         headers: {'Content-Type': 'multipart/form-data'}
-    }).then((response) =>{})
+    }).then((response) =>{
+      
+      setColorPhotoId(response.data.color_photo_id);
+    })
   }
   
   return (
@@ -82,9 +87,7 @@ const DragDrop = () => {
           ) : (
             <img
               src={imageView}
-              style={{
-                margin: "auto auto auto auto",
-                objectFit: "cover",
+              style={{margin: "auto",objectFit: "cover"
               }}
             />
           )}
@@ -103,7 +106,10 @@ const DragDrop = () => {
         />
       </label>
 
-      <ColorizeButton>colorize!</ColorizeButton>
+      <Link to={"/Colorizefinish/" + 100} >
+        <ColorizeButton>colorize!</ColorizeButton>
+      </Link>
+      
       </form>
     </>
   );

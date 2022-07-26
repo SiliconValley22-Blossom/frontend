@@ -43,7 +43,8 @@ img{
 }
 
 .mypage,
-.colorize{
+.colorize,
+.colorizefinish{
   height: 100vh;
   text-align: center;
   background: url(../public/images/colorizeBG.png);

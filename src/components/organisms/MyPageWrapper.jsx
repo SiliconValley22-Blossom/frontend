@@ -19,7 +19,6 @@ const StyledImage = styled.div`
   top: 0;
   left: 0;
   max-width: 100%;
- 
   object-fit: cover;
   margin: auto;
 `
@@ -63,24 +62,11 @@ const MyPageWrapper= () => {
       const result =[];
 
       for(let i = 0; i<imageData.length;i++) {
-      //  result.push(<span key={i}>{"/black/"+imageData[i][0]}</span>);
-      // result.push(<span key={i}>{"/color/"+imageData[i][1]}</span>);
-        
-      //api 반영 후 이렇게 수정
-      // result.push(<img src={s3URL + imageData[i][1]} alt="asdf"/>)
-
-        result.push(<StyledPics key={[i,0]}>
-          {<StyledImage>
-            <img src={s3URL + '/color/e6148a50-0700-41c8-8da8-c95e22bbd327.jpeg'} alt="asdf"/>
-          </StyledImage>}
-        
-        </StyledPics>)
-        result.push(<StyledPics key={[i,1]}>
-          { <StyledImage>
-            <img src={s3URL + '/black/274ae8ea-335a-430b-8326-3c8e63a3cce0.jpeg'} alt="asdf"/>
-          </StyledImage>}
-        </StyledPics>)
-      }
+        result.push(<StyledPics key={i}>
+          <StyledImage>
+            <img src={s3URL + imageData[i][1]} alt="asdf"/>
+          </StyledImage>
+        </StyledPics>)}
       
       setImageRander(result);
 
@@ -88,16 +74,13 @@ const MyPageWrapper= () => {
 
   },[]);
   const s3URL = 'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com'
-  
 
   return(
 
       <>
         <NavBar/>
           <StyledWrapper>
-            
             {imageRander}
-
           </StyledWrapper>
         
               
@@ -105,4 +88,4 @@ const MyPageWrapper= () => {
   );
 }
 
-  export default MyPageWrapper;
+export default MyPageWrapper;
