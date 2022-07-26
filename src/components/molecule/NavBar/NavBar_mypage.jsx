@@ -53,7 +53,7 @@ function NavBar(){
             <ul className= {click? 'nav-menu-active' : 'nav-menu'}>
 
                 <li className = 'nav-item'>
-                    <Link to = '/PhotoChange' className='nav-links' onClick= {closeMobileMenu}> Start Colorizing </Link>
+                    <Link to = '/Colorize' className='nav-links' onClick= {closeMobileMenu}> Start Colorizing </Link>
                 </li>
 
                 <li className = 'nav-item'>

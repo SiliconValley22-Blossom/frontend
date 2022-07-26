@@ -32,7 +32,7 @@
     font-size: 1.5rem;
 }
 .nav-links:hover{
-    background-color : var(--sub-pink);;
+    background-color : var(--sub-pink);
     color: white;
     border-radius : 0.5rem;
     transition : all 0.2s ease-out;
