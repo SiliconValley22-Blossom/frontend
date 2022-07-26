@@ -29,7 +29,7 @@ const ColorizeButton = styled.button`
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  background: var(--dark-grey)
+  background: var(--dark-gray)
   `;
 
 const DragDropImg = styled.img`

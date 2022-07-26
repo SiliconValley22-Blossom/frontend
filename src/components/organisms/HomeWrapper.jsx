@@ -9,15 +9,15 @@ const ColorizeButton = styled.button`
   border: none;
   color: gray;
   text-align: center;
-  background: #EBEBEB;
+  background: var(--gray);
   width: 11rem;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: semi-bold;
   margin-top: 35px;
   &:hover{  
-    background: #F7CCCA;
-    color : #D05968;
+    background: var(--main-pink);
+    color : var(--sub-purple);
   }
   `;
 

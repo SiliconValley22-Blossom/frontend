@@ -15,6 +15,30 @@ const StyledLogin = styled.div`
   height: 14.5rem;
 `;
 
+
+const SignInButton = styled.button`
+  padding: 0.5rem 0.5rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--sub-grey);
+  color: gray;
+  text-align: center;
+  background: white;
+  width: 8rem;
+  margin: 1rem 0rem 1rem 0rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  &:hover {
+    color: var(--main-purple);
+    border-style: solid;
+    border-color:var(--main-pink);
+    transition : all 0.2s ease-out;
+  }
+`;
+
+
   
 function LoginWrapper(){
 
@@ -73,7 +97,7 @@ function LoginWrapper(){
         <Input name="Email" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
         <Input name="Password" type="password" onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
 
-        <Button>Sign In</Button>
+        <SignInButton>Sign In</SignInButton>
         </form>
         <Link to="/signUp">
             <button style={btnStyle}>Are you not a member ?</button>
