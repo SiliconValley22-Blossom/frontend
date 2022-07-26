@@ -21,24 +21,24 @@ const StyledDropDown = styled.div`
 `;
 
 const ColFinButton = styled.button`
-  padding: 0.5rem 0.5rem;
+  padding: 0.8rem 0.5rem;
   border-radius: 1rem;
   border-style: solid;
   border-color: var(--sub-purple);
-  color: gray;
+  color: var(--sub-purple);
   text-align: center;
   background: var(--main-pink);
   width: 11rem;
   margin: 1rem 1rem 0rem 1rem;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
 
   &:hover {
     color: white;
     background-color: transparent;
     border-style: solid;
-    border-color: var(--dark-gray);
+    border-color: white;
     transition : all 0.2s ease-out;
   }
 `;
@@ -56,10 +56,11 @@ function ColorizeFinishWrapper() {
         <img style={{width: '5rem' ,height:'5rem', margin: 'auto auto'}} src= "img/FlowerLogo.png"/>
       </StyledDropDown>
       <ColFinButton>Download</ColFinButton>
-     <ColFinButton>
-       <Link to="/Colorize"></Link>
+      <Link to="/Colorize">
+      <ColFinButton>
        Go Colorize!
      </ColFinButton>
+     </Link>
     </>
   );
 };

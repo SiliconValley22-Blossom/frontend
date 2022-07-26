@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css'
-import { Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
 const ColorizeButton = styled.button`
@@ -15,10 +15,10 @@ const ColorizeButton = styled.button`
   font-size: 1.1rem;
   font-weight: semi-bold;
   margin-top: 35px;
-  &:hover{  
-    background: var(--main-pink);
-    color : var(--sub-purple);
-  }
+    &:hover{  
+      background: var(--main-pink);
+      color : var(--sub-purple);
+    }
   `;
 
   function HomeWrapper(){

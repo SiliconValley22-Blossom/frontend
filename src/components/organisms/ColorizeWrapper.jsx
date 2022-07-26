@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
+import {Link} from "react-router-dom";
 
 const StyledDropDown = styled.div`
   width: 30rem;
@@ -20,16 +21,21 @@ const ColorizeButton = styled.button`
   padding: 1rem 2rem;
   border-radius: 1rem;
   border-style: solid;
-  border-color: var(--sub-purple);
+  border-color: white;
   color: white;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  width: 12rem;
+  width: 10rem;
   margin-top: 2rem;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  background: var(--dark-gray)
+  background: transparent;
+    &:hover{  
+      background: var(--main-pink);
+      color : var(--sub-purple);
+      border-color: var(--sub-purple);
+    }
   `;
 
 const DragDropImg = styled.img`
@@ -102,8 +108,9 @@ const DragDrop = () => {
           }}
         />
       </label>
-
-      <ColorizeButton>colorize!</ColorizeButton>
+      <Link to = '/ColorizeFinish'>
+      <ColorizeButton>Colorize!</ColorizeButton>
+      </Link>
       </form>
     </>
   );
