@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react';
-import Button from "../atom/Button";
 import styled from 'styled-components';
 import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
@@ -28,7 +27,7 @@ const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1px;
+    grid-gap: 1rem;
     margin: 2rem auto;
     flex: 1;
     align-items: center;
@@ -93,9 +92,8 @@ const MyPageWrapper= () => {
 
   return(
 
-      <StyledContainer>
+      <>
         <NavBar/>
-        <HorizonLine/>
           <StyledWrapper>
             
             {imageRander}
@@ -103,7 +101,7 @@ const MyPageWrapper= () => {
           </StyledWrapper>
         
               
-      </StyledContainer>
+      </>
   );
 }
 
