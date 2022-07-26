@@ -4,6 +4,13 @@ import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 import {Link} from "react-router-dom";
 
+const Container = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`;
+
 const StyledDropDown = styled.div`
   width: 30rem;
   height: 40rem;
@@ -76,7 +83,7 @@ const DragDrop = () => {
   }
   
   return (
-    <>
+    <Container>
         <NavBar/>
       <form onSubmit={handleUpload} >
       <label style={{ zIndex: "8" }}>
@@ -112,7 +119,7 @@ const DragDrop = () => {
       <ColorizeButton>Colorize!</ColorizeButton>
       </Link>
       </form>
-    </>
+    </Container>
   );
 };
 
