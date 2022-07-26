@@ -3,8 +3,7 @@ import Button from "../atom/Button";
 import Input from "../atom/Input";
 import styled from 'styled-components';
 import axios from 'axios';
-import signUp from './SignUpWrapper'
-import { useHistory, Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { useHistory, Link} from "react-router-dom";
 
 const StyledLogin = styled.div`
   margin: 8rem auto;
@@ -59,7 +58,7 @@ function LoginWrapper(){
         method: "post",
         data: {data}
       }).then((response) => {
-        if(response.status==403){
+        if(response.status===403){
           window.alert("로그인 실패");
           return ;
         }
