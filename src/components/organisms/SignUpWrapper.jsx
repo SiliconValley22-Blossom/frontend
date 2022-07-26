@@ -50,38 +50,42 @@ function SignUpWrapper(){
     }
 
     
-    const data= JSON.stringify(
+    const jsonData= JSON.stringify(
       {
         "email": inputs['email'],
         "password" : inputs['password'],
         "nickname" : inputs['nickname']
-      });
+    });
 
-      if(inputs['password'] !== passwordCheck){
-        return alert("비밀번호가 일치하지 않습니다!")
-      }
+    if(inputs['password'] !== passwordCheck){
+      return alert("비밀번호가 일치하지 않습니다!")
+    }
 
-      axios({
-        url: "/api/users",
-        method: "post",
-        data:{data}
-      }).then((res) => {
-        window.alert("회원가입 완료 !");
-        return history.push("/Login");
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
+    axios({
+      url: "/api/users",
+      method: "post",
+      data:{
+        "email": inputs['email'],
+        "password" : inputs['password'],
+        "nickname" : inputs['nickname']
+    }
+    }).then((res) => {
+      window.alert("회원가입 완료 !");
+      return history.push("/Login");
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
 
     return(
       <>
         <StyledSignUp>
         <form onSubmit={postSignup}>
-          <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-          <Input type="password" name='Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-          <Input type="password" name='Check password' value={passwordCheck} onChange={onpasswordCheck}></Input>
-          <Input type="text" name='Nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
+          <Input type="text" name='email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='checkPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
         <Button>Sign Up</Button>
         </form>
         

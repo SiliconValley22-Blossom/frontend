@@ -56,7 +56,10 @@ function LoginWrapper(){
     axios({
         url: "/api/login",
         method: "post",
-        data: {data}
+        data: {
+          "email":inputs['email'],
+          "password": inputs['password']
+        }
       }).then((response) => {
         if(response.status===403){
           window.alert("로그인 실패");

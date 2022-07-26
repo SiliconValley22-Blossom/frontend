@@ -65,7 +65,7 @@ const DragDrop = () => {
         url: "/api/photos",
         method: "post",
         data: formData,
-        headers: {'Content-Type': 'multipart/form-data'}
+        headers: {'Content-Type': 'multipart/form-data  charset=UTF-8'}
     }).then((response) =>{})
   }
   
