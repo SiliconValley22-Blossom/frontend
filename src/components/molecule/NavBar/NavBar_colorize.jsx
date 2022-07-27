@@ -1,7 +1,9 @@
+import axios from 'axios';
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import styled from 'styled-components';
 import './NavBar_colorize.css';
+import { Cookies } from 'react-cookie';
 
 const StyledHeader = styled.nav`
     height: 3rem;
@@ -13,7 +15,19 @@ const StyledHeader = styled.nav`
     font-weight : bold;
 `;
 
-function NavBar(){
+const NavBar = () => {
+    const cookie = new Cookies();
+    const history = useHistory();
+
+    const logout = () => {
+        axios.post("/api/logout").then((res) => {
+            cookie.remove("access_token_cookie");
+            cookie.remove("refresh_token_cookie");
+
+            history.push("/");
+        })
+    } 
+
     return(
         <StyledHeader>
             <Link to ='/' className='navbar-logo'>
@@ -27,7 +41,7 @@ function NavBar(){
                 </li>
 
                 <li className = 'nav-item'>
-                    <Link to = '/' className='nav-links'> Logout </Link>
+                    <Link onClick = {logout} to = '/' className='nav-links'> Logout </Link>
                 </li>
 
             </ul>
