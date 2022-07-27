@@ -45,21 +45,36 @@ const ColFinButton = styled.button`
 const ColorizeFinishWrapper = (props) => {
     const [loading, setLoading] = useState(false);
     const [imageView, setImageView] = useState("");
+
+    getPhotos = () => {
+      return axios({
+        url: "/api/photos/" + props.photo_id,
+        method: "get"
+    }).then((response) =>{ 
+        setLoading(false);
+        console.log(response.data);
+        setImageView(
+        <StyledImg>
+            <img src={'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'+response.data.photo} alt="asdf"
+            style={{margin: "auto 0", objectFit: "cover"}}/>
+                
+        </StyledImg>)})
+    }
+
     useEffect(() => {
         console.log(props.photo_id);
-        axios({
-            url: "/api/photos/" + props.photo_id,
-            method: "get"
-        }).then((response) =>{ 
-            setLoading(false);
-            console.log(response.data);
-            setImageView(
-            <StyledImg>
-                <img src={'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'+response.data.photo} alt="asdf"
-                style={{margin: "auto 0", objectFit: "cover"}}/>
-                    
-            </StyledImg>)})
+        getPhotos().catch((error)=>{
+          if(error.response.status===401){
+            axios({
+              url: "/api/refresh",
+              method: "get"
+          }).then((response)=>{
+            getPhotos()
+        })}
+      })
+        
     },[]);
+    
     return (
     <div>
         <NavBar />
