@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import Input from "../atom/Input";
 import styled from 'styled-components';
 import axios from 'axios';
+import Button from '../atom/Button'
 
 const StyledSignUp = styled.div`
   width: 20rem;
