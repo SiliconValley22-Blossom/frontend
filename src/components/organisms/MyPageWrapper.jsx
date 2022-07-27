@@ -7,9 +7,9 @@ import '../../App.css'
 
 const StyledPics = styled.div`
     background: white;
-    width: 18rem;
-    height: 18rem;
-    margin-top: 2.5rem;
+    width: 290px;
+    height: 290px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +27,11 @@ const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1rem;
-    margin: 2rem auto;
+    grid-gap: 16px;
+    margin: 20px auto;
     flex: 1;
     align-items: center;
-    width: 65rem;
+    width: 1040px;
     height: 95vh;
 
     overflow: auto;
