@@ -46,7 +46,7 @@ const ColorizeFinishWrapper = (props) => {
     const [loading, setLoading] = useState(false);
     const [imageView, setImageView] = useState("");
 
-    getPhotos = () => {
+    const getPhotos = () => {
       return axios({
         url: "/api/photos/" + props.photo_id,
         method: "get"
@@ -62,13 +62,13 @@ const ColorizeFinishWrapper = (props) => {
     }
 
     useEffect(() => {
-        console.log(props.photo_id);
-        getPhotos().catch((error)=>{
-          if(error.response.status===401){
+      console.log(props.photo_id);
+      getPhotos().catch((error)=>{
+        if(error.response.status===401){
             axios({
               url: "/api/refresh",
               method: "get"
-          }).then((response)=>{
+        }).then((response)=>{
             getPhotos()
         })}
       })
