@@ -76,14 +76,26 @@ const DragDrop = () => {
     formData.append("file", file);
     console.log(colorPhotoId);
 
-    axios({
-      url: "/api/photos",
-      method: "post",
-      data: formData,
-      headers: { "Content-Type": "multipart/form-data charset=UTF-8" },
-    }).then((response) => {
-      return history.push("/Colorizefinish/" + response.data.color_photo_id);
-    });
+    const postPhoto = () => {
+      return  axios({
+        url: "/api/photos",
+        method: "post",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data charset=UTF-8" },
+      }).then((response) => {
+        return history.push("/Colorizefinish/" + response.data.color_photo_id);
+      });
+    }
+
+    postPhoto().catch((error) => {
+      if(error.response.status===401){
+        axios({
+          url: "/api/refresh",
+          method: "get"
+      }).then((response)=>{
+        postPhoto()
+      })}
+    })
   };
 
   return (
