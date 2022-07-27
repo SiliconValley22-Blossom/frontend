@@ -5,6 +5,7 @@ import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 import { Link } from "react-router-dom";
 import Loading from "../atom/Loading";
+import { Download } from '@styled-icons/boxicons-regular/Download';
 
 
 const StyledDropDown = styled.div`
@@ -45,6 +46,7 @@ const ColFinButton = styled.button`
 const ColorizeFinishWrapper = (props) => {
     const [loading, setLoading] = useState(false);
     const [imageView, setImageView] = useState("");
+    const [imageData, setImageData] = useState("");
     useEffect(() => {
         console.log(props.photo_id);
         axios({
@@ -53,6 +55,7 @@ const ColorizeFinishWrapper = (props) => {
         }).then((response) =>{ 
             setLoading(false);
             console.log(response.data);
+            setImageData(response.data.photo);
             setImageView(
             <StyledImg>
                 <img src={'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'+response.data.photo} alt="asdf"
@@ -69,8 +72,9 @@ const ColorizeFinishWrapper = (props) => {
         <StyledDropDown>
             {imageView}
         </StyledDropDown>
-        
+      <a href = {'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/' + imageData} download>
       <ColFinButton>Download</ColFinButton>
+      </a> 
       <Link to="/Colorize">
       <ColFinButton>
        Go Colorize!
