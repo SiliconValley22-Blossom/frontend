@@ -39,7 +39,7 @@ const ColorizeFinishWrapper = (props) => {
             console.log(response.data);
             setImageView(
             <StyledImg>
-                <img src={'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/test/newFile.png'} alt="asdf"
+                <img src={'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'+response.data.photo} alt="asdf"
                 style={{margin: "auto 0", objectFit: "cover"}}/>
                     
             </StyledImg>)})
