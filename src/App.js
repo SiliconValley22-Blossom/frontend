@@ -24,7 +24,7 @@ function App() {
           <Route path = "/SignUp" component = {SignUp}/>
           <Route path = "/Colorize" component = {Colorize}/>
           <Route path = "/MyPage" component = {MyPage}/>
-          <Route path = "/ColorizeFinish" component = {ColorizeFinish}/> 
+          <Route path = "/ColorizeFinish/:id" component={ColorizeFinish}/>
         </Switch>
       </BrowserRouter>
     </div>

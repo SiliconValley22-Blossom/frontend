@@ -1,15 +1,13 @@
 import "../../App.css";
 import React from "react";
-import Button from '../atom/Button';
-import ColorizeFinishWrapper from "../organisms/ColorizeFinishWrapper";
-import { Link } from "react-router-dom";
+import ColorizeFinishWrapper from '../organisms/ColorizeFinishWrapper';
 
-function Colorize() {
+function ColorizeFinish({match}) {
   return (
     <div className="colorizefinish">
-      <ColorizeFinishWrapper />
-     </div>
+      <ColorizeFinishWrapper photo_id={match.params.id}/>
+    </div>
   );
 }
 
-export default Colorize;
+export default ColorizeFinish;

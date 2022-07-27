@@ -32,6 +32,7 @@ function NavBar(){
 
             </ul>
         </StyledHeader>
+        
     )
 }
 export default NavBar;
