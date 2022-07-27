@@ -52,7 +52,7 @@ const StyledWrapper = styled.div`
 
 const MyPageWrapper= () => {
   const [imageRander, setImageRander] = useState([]);
-  const s3URL = 'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com'
+  const s3URL = 'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'
   const getImages = () => {
     return axios({
       url: "/api/photos",
