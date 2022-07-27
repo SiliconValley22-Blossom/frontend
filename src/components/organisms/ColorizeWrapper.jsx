@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 import {Link} from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 
 const Container = styled.div`
 display:flex;
@@ -57,6 +58,7 @@ const DragDrop = () => {
   const [file, setFile] = useState("");
   const [imageView, setImageView] = useState("");
   const [colorPhotoId, setColorPhotoId] = useState("");
+  const history = useHistory();
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -81,47 +83,45 @@ const DragDrop = () => {
         data: formData,
         headers: {'Content-Type': 'multipart/form-data charset=UTF-8'}
     }).then((response) =>{
-      
+
       setColorPhotoId(response.data.color_photo_id);
+
+      return history.push("/Colorizefinish/" + colorPhotoId);
     })
   }
   
   return (
     <Container>
         <NavBar/>
+
       <form onSubmit={handleUpload} >
-      <label style={{ zIndex: "8" }}>
-        <StyledDropDown>
-          {file === "" ? (
-            <DragDropImg
-              src="img/dragAndDrop.png"
-            />
-          ) : (
-            <img
-              src={imageView}
-              style={{margin: "auto",objectFit: "cover"
-              }}
-            />
-          )}
+        <label style={{ zIndex: "8" }}>
+          <StyledDropDown>
+            {file === "" ? (
+              <DragDropImg
+                src="img/dragAndDrop.png"
+              />
+            ) : (
+              <img
+                src={imageView}
+                style={{margin: "auto",objectFit: "cover"}}
+              />
+            )}
 
-        </StyledDropDown>
+          </StyledDropDown>
 
-        <input
-          type="file"
-          id="fileUpload"
-          style={{ display: "none" }}
-          multiple={false}
-          onChange={(e) => {
-            setFile(e.target.files[0]);
-            encodeFileToBase64(e.target.files[0]);
-          }}
-        />
-      </label>
-
-      <Link to={"/Colorizefinish/" + colorPhotoId} >
+          <input
+            type="file"
+            id="fileUpload"
+            style={{ display: "none" }}
+            multiple={false}
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+              encodeFileToBase64(e.target.files[0]);
+            }}
+          />
+        </label>
         <ColorizeButton>colorize!</ColorizeButton>
-      </Link>
-      
       </form>
     </Container>
   );
