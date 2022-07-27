@@ -4,6 +4,7 @@ import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
 import '../../App.css'
 
+
 const StyledPics = styled.div`
     background: white;
     width: 18rem;
@@ -52,24 +53,35 @@ const StyledWrapper = styled.div`
 const MyPageWrapper= () => {
   const [imageRander, setImageRander] = useState([]);
 
-  useEffect(() => {
-   
-    axios({
-        url: "/api/photos",
-        method: "get"
-    }).then((response) =>{ 
-      const imageData = response.data.photo_list;
-      const result =[];
+  const getImages = () => {
+    return axios({
+      url: "/api/photos",
+      method: "get"
+  }).then((response) =>{ 
+    const imageData = response.data.photo_list;
+    const result =[];
 
       for(let i = 0; i<imageData.length;i++) {
         result.push(<StyledPics key={i}>
           <StyledImage>
-            <img src={s3URL + imageData[i][1]} alt="asdf"/>
+            <img src={s3URL + imageData[i][1]} alt="image not found"/>
           </StyledImage>
         </StyledPics>)}
       
-      setImageRander(result);
+      
+    setImageRander(result);
+  })}
 
+  useEffect(() => {
+    getImages().catch((error)=>{
+      if(error.response.status===401){
+        axios({
+          url: "/api/refresh",
+          method: "get"
+      }).then((response)=>{
+        getImages()
+
+      })}
     })
 
   },[]);
@@ -81,9 +93,7 @@ const MyPageWrapper= () => {
         <NavBar/>
           <StyledWrapper>
             {imageRander}
-          </StyledWrapper>
-        
-              
+          </StyledWrapper>      
       </>
   );
 }

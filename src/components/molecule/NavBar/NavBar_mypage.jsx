@@ -24,7 +24,7 @@ function NavBar(){
             <ul className= 'nav-menu'>
 
                 <li className = 'nav-item'>
-                    <Link to = '/Colorize' className='nav-links' > Start Colorizing </Link>
+                    <Link to = '/Colorize' className='nav-links'> Start Colorizing </Link>
                 </li>
 
                 <li className = 'nav-item'>

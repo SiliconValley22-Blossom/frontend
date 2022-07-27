@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Input from "../atom/Input";
-import Button from "../atom/Button";
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -11,8 +10,30 @@ const StyledSignUp = styled.div`
   padding-bottom: 1.5rem;
   background: var(--main-white);
   border-radius: 2rem;
+
 `;
 
+const SignUpButton = styled.button`
+  padding: 0.5rem 0.5rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--sub-grey);
+  color: gray;
+  text-align: center;
+  background: white;
+  width: 8rem;
+  margin: 1rem 0rem 1rem 0rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  &:hover {
+    color: var(--main-purple);
+    border-style: solid;
+    border-color:var(--main-pink);
+    transition : all 0.2s ease-out;
+  }
+`;
 
 function SignUpWrapper(){
   
@@ -50,39 +71,43 @@ function SignUpWrapper(){
     }
 
     
-    const data= JSON.stringify(
+    const jsonData= JSON.stringify(
       {
         "email": inputs['email'],
         "password" : inputs['password'],
         "nickname" : inputs['nickname']
-      });
+    });
 
-      if(inputs['password'] !== passwordCheck){
-        return alert("비밀번호가 일치하지 않습니다!")
-      }
+    if(inputs['password'] !== passwordCheck){
+      return alert("비밀번호가 일치하지 않습니다!")
+    }
 
-      axios({
-        url: "/api/users",
-        method: "post",
-        data:{data}
-      }).then((res) => {
-        window.alert("회원가입 완료 !");
-        return history.push("/Login");
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
+    axios({
+      url: "/api/users",
+      method: "post",
+      data:{
+        "email": inputs['email'],
+        "password" : inputs['password'],
+        "nickname" : inputs['nickname']
+    }
+    }).then((res) => {
+      window.alert("회원가입 완료 !");
+      return history.push("/Login");
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
 
     return(
       <>
         <StyledSignUp>
         <form onSubmit={postSignup}>
-          <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-          <Input type="password" name='Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-          <Input type="password" name='Check password' value={passwordCheck} onChange={onpasswordCheck}></Input>
-          <Input type="text" name='Nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
-        <Button>Sign Up</Button>
+          <Input type="text" name='email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='checkPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
+        <SignUpButton>Sign Up</SignUpButton>
         </form>
         
         </StyledSignUp>

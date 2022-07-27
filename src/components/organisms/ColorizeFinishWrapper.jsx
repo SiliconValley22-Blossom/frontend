@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Button from "../atom/Button";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 import { Link } from "react-router-dom";
 import Loading from "../atom/Loading";
@@ -20,17 +20,33 @@ const StyledImg = styled.div`
     display : block ;
     margin : auto ;
 `
+const ColFinButton = styled.button`
+  padding: 0.8rem 0.5rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--sub-purple);
+  color: var(--sub-purple);
+  text-align: center;
+  background: var(--main-pink);
+  width: 11rem;
+  margin: 1rem 1rem 0rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
 
-
+  &:hover {
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    transition : all 0.2s ease-out;
+  }
+`;
 const ColorizeFinishWrapper = (props) => {
     const [loading, setLoading] = useState(false);
     const [imageView, setImageView] = useState("");
-
-    
-    
     useEffect(() => {
         console.log(props.photo_id);
-
         axios({
             url: "/api/photos/" + props.photo_id,
             method: "get"
@@ -44,11 +60,6 @@ const ColorizeFinishWrapper = (props) => {
                     
             </StyledImg>)})
     },[]);
-            
-    
-
-        
-
     return (
     <div>
         <NavBar />
@@ -59,13 +70,14 @@ const ColorizeFinishWrapper = (props) => {
             {imageView}
         </StyledDropDown>
         
-        <Button>download</Button>
-        <Button>
-            <Link to="/Colorize">other img</Link>
-        </Button>
+      <ColFinButton>Download</ColFinButton>
+      <Link to="/Colorize">
+      <ColFinButton>
+       Go Colorize!
+     </ColFinButton>
+     </Link>
         </div>
         
     );
 };
-
 export default ColorizeFinishWrapper;

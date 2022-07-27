@@ -5,6 +5,13 @@ import NavBar from '../molecule/NavBar/NavBar_colorize';
 import {Link} from "react-router-dom";
 import {useHistory} from 'react-router-dom';
 
+const Container = styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`;
+
 const StyledDropDown = styled.div`
   width: 30rem;
   height: 40rem;
@@ -22,16 +29,21 @@ const ColorizeButton = styled.button`
   padding: 1rem 2rem;
   border-radius: 1rem;
   border-style: solid;
-  border-color: var(--sub-purple);
+  border-color: white;
   color: white;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  width: 12rem;
+  width: 10rem;
   margin-top: 2rem;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  background: var(--dark-grey)
+  background: transparent;
+    &:hover{  
+      background: var(--main-pink);
+      color : var(--sub-purple);
+      border-color: var(--sub-purple);
+    }
   `;
 
 const DragDropImg = styled.img`
@@ -79,8 +91,9 @@ const DragDrop = () => {
   }
   
   return (
-    <>
-      <NavBar/>
+    <Container>
+        <NavBar/>
+
       <form onSubmit={handleUpload} >
         <label style={{ zIndex: "8" }}>
           <StyledDropDown>
@@ -110,7 +123,7 @@ const DragDrop = () => {
         </label>
         <ColorizeButton>colorize!</ColorizeButton>
       </form>
-    </>
+    </Container>
   );
 };
 
