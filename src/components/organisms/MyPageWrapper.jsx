@@ -4,12 +4,17 @@ import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
 import '../../App.css'
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const StyledPics = styled.div`
     background: white;
     width: 290px;
     height: 290px;
-    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +35,6 @@ const StyledWrapper = styled.div`
     grid-gap: 16px;
     margin: 20px auto;
     flex: 1;
-    align-items: center;
     width: 1040px;
     height: 95vh;
 
