@@ -2,16 +2,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Button from "../atom/Button";
 import NavBar from '../molecule/NavBar/NavBar_colorize';
 import { Link } from "react-router-dom";
 import Loading from "../atom/Loading";
-const Container = styled.div`
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`;
+
+
 const StyledDropDown = styled.div`
   width: 30rem;
   height: 40rem;

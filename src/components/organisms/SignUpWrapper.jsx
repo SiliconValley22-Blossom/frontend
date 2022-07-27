@@ -3,7 +3,6 @@ import {useHistory} from 'react-router-dom';
 import Input from "../atom/Input";
 import styled from 'styled-components';
 import axios from 'axios';
-import Button from '../atom/Button'
 
 const StyledSignUp = styled.div`
   width: 20rem;
@@ -108,7 +107,7 @@ function SignUpWrapper(){
           <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
           <Input type="password" name='checkPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
           <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
-        <Button>Sign Up</Button>
+        <SignUpButton>Sign Up</SignUpButton>
         </form>
         
         </StyledSignUp>

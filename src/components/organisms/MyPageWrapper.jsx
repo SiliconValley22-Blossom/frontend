@@ -4,29 +4,6 @@ import NavBar from '../molecule/NavBar/NavBar_mypage';
 import axios from 'axios';
 import '../../App.css'
 
-const StyledContainer = styled.div`
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: url('../img/mypage.png');
-    background-size: cover;
-    position: fixed;
-    overflow-y: hidden;
-`;
-
-const HorizonLine = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          borderBottom: "1px solid rgb(171, 171, 171)",
-          lineHeight: "0.1em"
-        }}>
-      </div>
-    );
-  };
 
 const StyledPics = styled.div`
     background: white;
@@ -97,7 +74,7 @@ const MyPageWrapper= () => {
 
   useEffect(() => {
     getImages().catch((error)=>{
-      if(error.response.status==401){
+      if(error.response.status===401){
         axios({
           url: "/api/refresh",
           method: "get"
@@ -116,9 +93,7 @@ const MyPageWrapper= () => {
         <NavBar/>
           <StyledWrapper>
             {imageRander}
-          </StyledWrapper>
-        
-              
+          </StyledWrapper>      
       </>
   );
 }
