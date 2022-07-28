@@ -103,10 +103,10 @@ function SignUpWrapper(){
       <>
         <StyledSignUp>
         <form onSubmit={postSignup}>
-          <Input type="text" name='email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-          <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-          <Input type="password" name='checkPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
-          <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
+          <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input type="password" name='Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='Check Password' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <Input type="text" name='Nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
         <SignUpButton>Sign Up</SignUpButton>
         </form>
         
