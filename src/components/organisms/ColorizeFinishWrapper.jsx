@@ -82,9 +82,9 @@ const ColorizeFinishWrapper = (props) => {
       <StyledDropDown>{imageView}</StyledDropDown>
 
       <a
-        href=""
+        href={imageData}
         download={
-          "https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/" + imageData
+         imageData
         }
         target="_blank"
       >
