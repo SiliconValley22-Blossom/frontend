@@ -11,7 +11,7 @@ const StyledDropDown = styled.div`
   height: 40rem;
   background-color: white;
   border-radius: 50px;
-  margin: 3rem auto 1.5rem;
+  margin: 4rem auto 1.5rem;
   display: flex;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
@@ -31,7 +31,8 @@ const ColFinButton = styled.button`
   margin: 1rem 1rem 0rem 1rem;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-family: Cormorant;
 
   &:hover {
     color: white;

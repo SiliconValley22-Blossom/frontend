@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const StyledSignUp = styled.div`
   width: 20rem;
-  padding-top: 3rem; 
+  padding-top: 1.5rem; 
   padding-bottom: 1.5rem;
   background: var(--main-white);
   border-radius: 2rem;
@@ -22,10 +22,11 @@ const SignUpButton = styled.button`
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 2rem 0rem 1rem 0rem;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
+  font-family: Cormorant;
 
   &:hover {
     color: var(--main-purple);
@@ -103,10 +104,10 @@ function SignUpWrapper(){
       <>
         <StyledSignUp>
         <form onSubmit={postSignup}>
-          <Input type="text" name='email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-          <Input type="password" name='password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-          <Input type="password" name='checkPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
-          <Input type="text" name='nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
+          <Input type="text" name='Email' onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input type="password" name='Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='CheckPassword' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <Input type="text" name='Nickname' onChange={(e) => setInputs({...inputs,"nickname":e.target.value})}></Input>
         <SignUpButton>Sign Up</SignUpButton>
         </form>
         

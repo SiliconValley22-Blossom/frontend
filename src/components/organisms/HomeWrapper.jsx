@@ -13,7 +13,8 @@ const ColorizeButton = styled.button`
   width: 11rem;
   cursor: pointer;
   font-size: 1.1rem;
-  font-weight: semi-bold;
+  font-weight: bold;
+  font-family: Cormorant;
   margin-top: 35px;
     &:hover{  
       background: var(--main-pink);

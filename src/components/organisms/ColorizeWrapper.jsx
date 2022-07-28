@@ -19,7 +19,7 @@ const StyledDropDown = styled.div`
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 50px;
-  margin: 3rem auto 1.5rem;
+  margin: 4rem auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@ const StyledDropDown = styled.div`
 `;
 
 const ColorizeButton = styled.button`
-  padding: 1rem 2rem;
+  padding: 0.7rem 1rem;
   border-radius: 1rem;
   border-style: solid;
   border-color: white;
@@ -37,9 +37,11 @@ const ColorizeButton = styled.button`
   width: 10rem;
   margin-top: 2rem;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-family: Cormorant;
+  font-size: 1.4rem;
   font-weight: bold;
   background: transparent;
+
   &:hover {
     background: var(--main-pink);
     color: var(--sub-purple);
@@ -127,7 +129,7 @@ const DragDrop = () => {
             }}
           />
         </label>
-        <ColorizeButton>colorize!</ColorizeButton>
+        <ColorizeButton>Colorize!</ColorizeButton>
       </form>
     </Container>
   );

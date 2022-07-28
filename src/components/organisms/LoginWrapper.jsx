@@ -9,10 +9,11 @@ const StyledLogin = styled.div`
   margin: 8rem auto;
   background: var(--main-white);
   border-radius: 2rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
   width: 18rem;
   height: 14.5rem;
+  
 `;
 
 
@@ -25,10 +26,11 @@ const SignInButton = styled.button`
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 1.5rem 0rem 1rem 0rem;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
+  font-family: Cormorant;
 
   &:hover {
     color: var(--main-purple);
