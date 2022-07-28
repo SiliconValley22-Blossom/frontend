@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
+  height: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
