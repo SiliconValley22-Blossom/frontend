@@ -53,6 +53,7 @@ img{
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 .home{

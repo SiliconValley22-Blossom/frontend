@@ -1,101 +1,99 @@
-import React,{useEffect, useState} from 'react';
-import styled from 'styled-components';
-import NavBar from '../molecule/NavBar/NavBar_mypage';
-import axios from 'axios';
-import '../../App.css'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import NavBar from "../molecule/NavBar/NavBar_mypage";
+import axios from "axios";
+import "../../App.css";
 
-
-const StyledPics = styled.div`
-    background: white;
-    width: 290px;
-    height: 290px;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+const StyledWhiteBox = styled.div`
+  display: flex;
+  background: white;
+  width: 18rem;
+  height: 18rem;
+  justify-content: center;
+  align-items: center;
 `;
 
-const StyledImage = styled.div`
+const StyledImageWrap = styled.div`
   top: 0;
   left: 0;
   max-width: 100%;
   object-fit: cover;
-  margin: auto;
-`
-const StyledWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 16px;
-    margin: 20px auto;
-    flex: 1;
-    align-items: center;
-    width: 1040px;
-    height: 95vh;
+`;
 
-    overflow: auto;
-    &::-webkit-scrollbar{
-      width: 11px;
-      height: 8px;
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-track {
-      background: #eeeeee;
-      border-radius: 5px;
-    }
-    &::-webkit-scrollbar-thumb{
-      background: linear-gradient(#f7ccca, #d8d1e1);
-      border-radius: 10px;
-    }
-`
+const StyledWhiteboxContainer = styled.div`
+  display: grid;
+  place-items: center;
+  margin: 0px auto;
+  margin-top: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 56.5rem;
+  max-height: 90vh;
+  height: auto;
 
-const MyPageWrapper= () => {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 11px;
+    height: 8px;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(#f7ccca, #d8d1e1);
+    border-radius: 10px;
+  }
+`;
+
+const MyPageWrapper = () => {
   const [imageRander, setImageRander] = useState([]);
-  const s3URL = 'https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/'
+  const s3URL = "https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/";
   const getImages = () => {
     return axios({
       url: "/api/photos",
-      method: "get"
-  }).then((response) =>{ 
-    const imageData = response.data.photo_list;
-    const result =[];
+      method: "get",
+    }).then((response) => {
+      const imageData = response.data.photo_list;
+      const result = [];
 
-      for(let i = 0; i<imageData.length;i++) {
-        result.push(<StyledPics key={i}>
-          <StyledImage>
-            <img src={s3URL + imageData[i][1]} alt="image not found"/>
-          </StyledImage>
-        </StyledPics>)}
-      
-      
-    setImageRander(result);
-  })}
+      for (let i = 0; i < imageData.length; i++) {
+        result.push(
+          <StyledWhiteBox key={i}>
+            <StyledImageWrap>
+              <img src={s3URL + imageData[i][1]} alt="image not found" />
+            </StyledImageWrap>
+          </StyledWhiteBox>
+        );
+      }
+
+      setImageRander(result);
+    });
+  };
 
   useEffect(() => {
-    getImages().catch((error)=>{
-      if(error.response.status===401){
+    getImages().catch((error) => {
+      if (error.response.status === 401) {
         axios({
           url: "/api/refresh",
-          method: "get"
-      }).then((response)=>{
-        getImages()
+          method: "get",
+        }).then((response) => {
+          getImages();
+        });
+      }
+    });
+  }, []);
 
-      })}
-    })
-
-  },[]);
- 
-
-  return(
-
-      <>
-        <NavBar/>
-          <StyledWrapper>
-            {imageRander}
-          </StyledWrapper>      
-      </>
+  return (
+    <>
+      <NavBar />
+      <StyledWhiteboxContainer>{imageRander}</StyledWhiteboxContainer>
+    </>
   );
-}
+};
 
 export default MyPageWrapper;

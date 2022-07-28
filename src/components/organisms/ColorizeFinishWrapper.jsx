@@ -51,26 +51,28 @@ const ColorizeFinishWrapper = (props) => {
       url: "/api/photos/" + props.photo_id,
       method: "get",
     }).then((response) => {
-      setImageData( "https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/"+response.data.photo);
-     
+      setImageData(
+        "https://picsum.photos/id/235/500/500?blur=10/" + response.data.photo
+      );
     });
   }, []);
 
   const changeImageView = () => {
-    setTimeout(() =>  {setLoading(false);
-    setImageView(<StyledImg>
-      <img
-        src={imageData}
-        style={{ margin: "auto 0", objectFit: "cover" }}
-      />
-    </StyledImg>
-    )},
-    8000);
+    setTimeout(() => {
+      setLoading(false);
+      setImageView(
+        <StyledImg>
+          <img
+            src={imageData}
+            style={{ margin: "auto 0", objectFit: "cover" }}
+          />
+        </StyledImg>
+      );
+    }, 8000);
   };
 
   useEffect(() => {
-
-    changeImageView()
+    changeImageView();
   }, [imageData]);
 
   return (
