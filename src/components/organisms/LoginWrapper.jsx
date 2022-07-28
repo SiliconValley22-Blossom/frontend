@@ -111,7 +111,7 @@ function LoginWrapper(){
 
         <SignInButton>Sign In</SignInButton>
         </form>
-        <Link to="/signUp">
+        <Link to="/SignUp">
             <button style={btnStyle}>Are you not a member ?</button>
         </Link>
         </StyledLogin>
