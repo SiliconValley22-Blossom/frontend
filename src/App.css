@@ -23,6 +23,7 @@ img{
   text-align: center;
 }
 
+.findpw,
 .signup,
 .login,
 .home{
@@ -37,6 +38,7 @@ img{
   justify-content: center;
   align-items: center;
 }
+.findpw,
 .signup,
 .login{
   min-height: 100%;

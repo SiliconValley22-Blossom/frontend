@@ -12,34 +12,33 @@ const StyledLogin = styled.div`
   padding-top: 1rem;
   padding-bottom: 3rem;
   width: 18rem;
-  height: 17rem;
+  height: 10rem;
   
 `;
 
-const NewMember = styled.button`
+const LoginButton = styled.button`
   border: none;
   background-color: transparent;
-  width: 12rem;
+  width: 8rem;
   cursor: pointer;
-  margin: 0rem 0rem 0.5rem 0rem;
   font-size: 0.9rem;
   font-weight: bold;
   font-family: Cormorant;
   color: gray;
 `
 
-const SignInButton = styled.button`
-  padding: 0.5rem 0.5rem;
-  border-radius: 1rem;
+const SendEmail = styled.button`
+  padding: 0.4rem 0.3rem;
+  border-radius: 0.8rem;
   border-style: solid;
   border-color: var(--sub-grey);
   color: gray;
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 1.5rem 0rem 1.3rem 0rem;
+  margin: 1.5rem 0rem 1rem 0rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: Cormorant;
 
@@ -53,23 +52,13 @@ const SignInButton = styled.button`
 
 
   
-function LoginWrapper(){
-
-  const btnStyle = {
-    color: "#BBBBBB",
-    background: "white",
-    border: "None",
-    fontSize: "0.95rem",
-    cursor:"pointer",
-    textDecoration:"underline"
-    
-  };
+function FindPWWrapper(){
 
   const [inputs, setInputs] = useState({
-    email : '',
-    password:''
+    email : ''
   })
    
+  //API 확인 필요 (password 부분만 삭제함)
   const history=useHistory();
 
   const cookie = new Cookies();
@@ -84,16 +73,11 @@ function LoginWrapper(){
       window.alert("이메일을 입력해주세요.");
       return ;
     }
-    else if(inputs['password']===""){
-      window.alert("비밀번호를 입력해주세요.")
-      return ;
-    }
     console.log(inputs)
     ev.preventDefault();
     const data = JSON.stringify(
       {
-        "email":inputs['email'],
-        "password": inputs['password']
+        "email":inputs['email']
       });
 
     console.log(data);
@@ -102,11 +86,10 @@ function LoginWrapper(){
         method: "post",
         data: {
           "email":inputs['email'],
-          "password": inputs['password']
         }
       }).then((response) => {
         if(response.status===403){
-          window.alert("로그인 실패");
+          window.alert("이메일 보내기 실패");
           return ;
         }
         return history.push("/Colorize");
@@ -118,19 +101,15 @@ function LoginWrapper(){
         <StyledLogin>
         <form onSubmit={postLogin}>
         <Input name="Email" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
-        <Input name="Password" type="password" onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
 
-        <SignInButton>Sign In</SignInButton>
+        <SendEmail>Send Email</SendEmail>
         </form>
-        <Link to="/SignUp">
-            <NewMember>Are you not a member ?</NewMember>
-        </Link>
-        <Link to="/FindPW">
-            <NewMember>Forgot password ?</NewMember>
+        <Link to="/login">
+            <LoginButton>Back to Login</LoginButton>
         </Link>
         </StyledLogin>
       </>
     )
   }
 
-export default LoginWrapper;
+export default FindPWWrapper;
