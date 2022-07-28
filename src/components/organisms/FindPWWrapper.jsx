@@ -72,6 +72,8 @@ function FindPWWrapper(){
     if(inputs['email']===""){
       window.alert("이메일을 입력해주세요.");
       return ;
+    }else{
+      window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!")
     }
     console.log(inputs)
     ev.preventDefault();

@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import './NavBar_mypage.css';
 import { useHistory } from "react-router-dom";
 import { Cookies } from 'react-cookie';
-import {PersonFill} from '@styled-icons/bootstrap/PersonFill'
+import {PersonFill} from '@styled-icons/bootstrap/PersonFill';
+
 
 const HeaderMyPage = styled.nav`
     height: 3rem;
@@ -44,6 +45,10 @@ const NavBar = () => {
 
                 <li className = 'nav-item'>
                     <Link to = '/' className='nav-links' onClick={logout}> Logout </Link>
+                </li>
+
+                <li className = 'nav-item'>
+                <Link to = '/MyProfile' className='nav-person'> <PersonFill/> </Link>
                 </li>
 
             </ul>
