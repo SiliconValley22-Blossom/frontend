@@ -26,7 +26,7 @@ const ColorizeButton = styled.button`
     return (
         <>
             <img style={{width: '30rem'}} alt="blossomLogo" src="../PurpleLogo-BOutline.png"/>
-            <Link to="/login"><ColorizeButton>Start Colorizing</ColorizeButton></Link>
+            <Link to="/Login"><ColorizeButton>Start Colorizing</ColorizeButton></Link>
         </>
         
     )
