@@ -53,7 +53,7 @@ const ColorizeFinishWrapper = (props) => {
       method: "get",
     }).then((response) => {
       setImageData(
-        "https://picsum.photos/id/235/500/500?blur=10/" + response.data.photo
+        "https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/"+response.data.photo
       );
     });
   }, []);
