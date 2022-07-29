@@ -48,7 +48,7 @@ const NavBar = () => {
                 </li>
 
                 <li className = 'nav-item-mypage'>
-                <Link to = '/MyProfile' className='nav-person'> <PersonFill/> </Link>
+                <Link to = '/MyProfile' className='nav-person-mypage'> <PersonFill/> </Link>
                 </li>
 
             </ul>

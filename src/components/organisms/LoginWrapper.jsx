@@ -9,10 +9,9 @@ const StyledLogin = styled.div`
   margin: 8rem auto;
   background: var(--main-white);
   border-radius: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
   width: 18rem;
-  height: 17rem;
   
 `;
 
@@ -37,9 +36,9 @@ const SignInButton = styled.button`
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 1.5rem 0rem 1.3rem 0rem;
+  margin: 0rem 0rem 1.3rem 0rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-family: Cormorant;
 
@@ -54,16 +53,6 @@ const SignInButton = styled.button`
 
   
 function LoginWrapper(){
-
-  const btnStyle = {
-    color: "#BBBBBB",
-    background: "white",
-    border: "None",
-    fontSize: "0.95rem",
-    cursor:"pointer",
-    textDecoration:"underline"
-    
-  };
 
   const [inputs, setInputs] = useState({
     email : '',
@@ -90,13 +79,7 @@ function LoginWrapper(){
     }
     console.log(inputs)
     ev.preventDefault();
-    const data = JSON.stringify(
-      {
-        "email":inputs['email'],
-        "password": inputs['password']
-      });
-
-    console.log(data);
+ 
     axios({
         url: "/api/login",
         method: "post",

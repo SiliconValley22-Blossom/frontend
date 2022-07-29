@@ -9,10 +9,9 @@ const StyledLogin = styled.div`
   margin: 8rem auto;
   background: var(--main-white);
   border-radius: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   width: 18rem;
-  height: 10rem;
   
 `;
 
@@ -24,6 +23,7 @@ const LoginButton = styled.button`
   font-size: 0.9rem;
   font-weight: bold;
   font-family: Cormorant;
+  margin-bottom: 0.5rem;
   color: gray;
 `
 
@@ -36,7 +36,7 @@ const SendEmail = styled.button`
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 1.5rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
