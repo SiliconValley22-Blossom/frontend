@@ -37,17 +37,17 @@ const NavBar = () => {
             <img style={{width: '11rem'}} alt="blossomLogo" src="../../../../logo-4.png"/>
             </Link>
             
-            <ul className= 'nav-menu'>
+            <ul className= 'nav-menu-mypage'>
 
-                <li className = 'nav-item'>
-                    <Link to = '/Colorize' className='nav-links'> Start Colorizing </Link>
+                <li className = 'nav-item-mypage'>
+                    <Link to = '/Colorize' className='nav-links-mypage'> Start Colorizing </Link>
                 </li>
 
-                <li className = 'nav-item'>
-                    <Link to = '/' className='nav-links' onClick={logout}> Logout </Link>
+                <li className = 'nav-item-mypage'>
+                    <Link to = '/' className='nav-links-mypage' onClick={logout}> Logout </Link>
                 </li>
 
-                <li className = 'nav-item'>
+                <li className = 'nav-item-mypage'>
                 <Link to = '/MyProfile' className='nav-person'> <PersonFill/> </Link>
                 </li>
 

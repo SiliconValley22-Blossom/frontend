@@ -4,6 +4,7 @@ import {Link, useHistory} from "react-router-dom";
 import styled from 'styled-components';
 import './NavBar_colorize.css';
 import { Cookies } from 'react-cookie';
+import {PersonFill} from '@styled-icons/bootstrap/PersonFill';
 
 const StyledHeader = styled.nav`
     height: 3rem;
@@ -30,18 +31,22 @@ const NavBar = () => {
 
     return(
         <StyledHeader>
-            <Link to ='/' className='navbar-logo'>
+            <Link to ='/' className='navbar-logo-colorize'>
             <img style={{width: '11rem'}} alt="blossomLogo" src="../../../../logo-4.png"/>
             </Link>
     
-            <ul className = 'nav-menu'>
+            <ul className = 'nav-menu-colorize'>
 
-                <li className = 'nav-item'>
-                    <Link to = '/MyPage' className='nav-links'> My page </Link>
+                <li className = 'nav-item-colorize'>
+                    <Link to = '/MyPage' className='nav-links-colorize'> My page </Link>
                 </li>
 
-                <li className = 'nav-item'>
-                    <Link onClick = {logout} to = '/' className='nav-links'> Logout </Link>
+                <li className = 'nav-item-colorize'>
+                    <Link onClick = {logout} to = '/' className='nav-links-colorize'> Logout </Link>
+                </li>
+
+                <li className = 'nav-item-colorize'>
+                <Link to = '/MyProfile' className='nav-person-colorize'> <PersonFill/> </Link>
                 </li>
 
             </ul>

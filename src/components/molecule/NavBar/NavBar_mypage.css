@@ -6,7 +6,7 @@
     font-size : 2rem;
     margin-left: 3rem;
 }
-.nav-menu{
+.nav-menu-mypage{
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-gap: 0.5rem;
@@ -14,24 +14,25 @@
     float: right;
     margin: 0rem 2rem 2rem 0rem;
 }
-.nav-item{
+.nav-item-mypage{
     display: flex;
     align-items: center;
     height: 3rem;
 }
 
-.nav-person{
-    text-decoration : none;
+.nav-person-mypage{
     padding: 0.3rem 1rem;
     color : var(--sub-purple);
+    width: 2rem;
+    height: 2rem;
 }
 
-.nav-links{
+.nav-links-mypage{
     color: var(--sub-purple);
     text-decoration : none;
     padding: 0.3rem 1rem;
 }
-.nav-links:hover{
+.nav-links-mypage:hover{
     background-color : var(--main-pink);
     color: white;
     border-radius : 0.5rem;
@@ -39,13 +40,13 @@
 }
 
 @media screen and (max-width:50px) {
-    .navbar-logo{
+    .navbar-logo-mypage{
         display: flex;
         margin-bottom: 3.5rem;
         margin-left: 3rem;
         
     }
-    .nav-menu{
+    .nav-menu-mypage{
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -56,37 +57,21 @@
         top: 5rem;
         margin-top: 10rem;
     }
-    .nav-menu-active{
+    .nav-menu-mypage-active{
         background-color: var(--main-pink);
         left:0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 3;
     }
-    .nav-links{
+    .nav-links-mypage{
         text-align: center;
         padding: 2rem;
         width: 100%;
         display: table;
     }
-    .nav-links:hover{
+    .nav-links-mypage:hover{
         background-color: var(--main-purple);
         border-radius: 0;
     }
-    .menu-icon{
-        display: flex;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%,60%);
-        font-size: 3rem;
-        cursor: pointer;
-    }
-    .fa-times{
-        display:flex;
-        margin-right: 0.5rem;
-        color:white;
-        font-size: 3rem;
-    }
-    
 }
