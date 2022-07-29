@@ -95,44 +95,49 @@ function MyProfileWrapper(){
         if(inputs['password']===""){
             window.alert("비밀번호를 입력해주세요.")
             return ;
-            }
-            else if(passwordCheck===""){
+        }else if(passwordCheck===""){
             window.alert("비밀번호를 확인해주세요.")
             return ;
-            }
-        
-            if(inputs['password'] !== passwordCheck){
+        }if(inputs['password'] !== passwordCheck){
             return alert("비밀번호가 일치하지 않습니다!")
-            }
-        
-            axios({
-            url: "/api/users",
-            method: "patch",
-            data:{
-                "password" : inputs['password']
-            }
-            }).then((res) => {
-            window.alert("비밀번호변경 완료 !");
-            //여기 뭘로 해야되나요??
-            return history.push("/Login");
-            })
-            .catch((error)=>{
-            console.log(error);
-            })
         }
+        
+        axios({
+          url: "/api/users",
+          method: "patch",
+          data:{
+              "password" : inputs['password'],
+              "new_password" : inputs['new_password']
+        }
+        }).then((res) => {
+          window.alert("비밀번호변경 완료 !");
+          //여기 뭘로 해야되나요??
+          if(response.status===401){
+            window.alert("기존 비밀번호가 틀립니다.");
+            return ;
+          }
+
+          return history.push("/MyProfile");
+        })
+        .catch((error)=>{
+        console.log(error);
+        })
+    }
   
     return(
             
       <>
-      <form onSubmit={postChangePW}></form>
+     
         <StyledChangeInfo>
         <Title><StyledPencil/>Change Your Password</Title>
         {/* 여기 인풋타임 이걸로 비교하는게 맞나요?
         인풋 없을때 버튼 눌러도 경고창 안뜸*/}
-        <Input type="password" name='Current Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-        <Input type="password" name='New Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
-        <Input type="password" name='Check Password' value={passwordCheck} onChange={onpasswordCheck}></Input>
-        <Link to = '/MyProfile'><SaveButton>Save Password</SaveButton></Link>
+        <form onSubmit={postChangePW}>
+          <Input type="password" name='Current Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
+          <Input type="password" name='New Password' onChange={(e) => setInputs({...inputs,"new_password":e.target.value})}></Input>
+          <Input type="password" name='Check Password' value={passwordCheck} onChange={onpasswordCheck}></Input>
+          <SaveButton>Save Password</SaveButton>
+        </form>
         <Link to = '/MyProfile'>
             <IconWithWord>
                 <li><StyledChevronBack/></li>

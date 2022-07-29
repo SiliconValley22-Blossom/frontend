@@ -88,7 +88,7 @@ function LoginWrapper(){
           "password": inputs['password']
         }
       }).then((response) => {
-        if(response.status===403){
+        if(response.status===401){
           window.alert("로그인 실패");
           return ;
         }
