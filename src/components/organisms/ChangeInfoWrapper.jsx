@@ -98,6 +98,15 @@ function MyProfileWrapper(){
         }else if(passwordCheck===""){
             window.alert("비밀번호를 확인해주세요.")
             return ;
+
+        }else if(['new_password']===""){
+            window.alert("새로운비밀번호를 입력해주세요.")
+            return ;
+            
+        }else if(['new_password']===""){
+            window.alert("새로운비밀번호를 입력해주세요.")
+            return ;
+
         }if(inputs['password'] !== passwordCheck){
             return alert("비밀번호가 일치하지 않습니다!")
         }
@@ -112,7 +121,7 @@ function MyProfileWrapper(){
         }).then((res) => {
           window.alert("비밀번호변경 완료 !");
           //여기 뭘로 해야되나요??
-          if(response.status===401){
+          if(res.status===401){
             window.alert("기존 비밀번호가 틀립니다.");
             return ;
           }
