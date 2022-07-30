@@ -36,18 +36,10 @@
     border-radius : 0.5rem;
     transition : all 0.2s ease-out;
 }
-.menu-icon-mypage{
-    display: none;
-}
 
 @media screen and (max-width:700px) {
     .header-mypage{
         justify-content: center;
-    }
-   
-    .navbar-logo-mypage{
-        justify-content: center;
-        align-items: center;
     }
     .nav-menu-mypage{
         display: flex;
@@ -64,11 +56,5 @@
         align-items: center;
         width: 100%;
         display: table;
-    }
-    .menu-icon-mypage{
-        height: 2rem;
-        cursor: pointer;
-        display:flex;
-        color: var(--sub-purple);
     }
 }
