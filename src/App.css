@@ -46,7 +46,7 @@ img{
 .mypage,
 .colorize,
 .colorizefinish{
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   background: url(../public/images/colorizeBG.png);
   background-size: cover;
