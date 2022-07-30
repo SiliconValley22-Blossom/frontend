@@ -25,7 +25,6 @@ const IconWithWord = styled.ul`
     margin: 1rem 0rem 0rem 2.1rem;
    
 `
-
 const Title = styled.p`
     font-weight: bold;
     font-size: 1.3rem;
@@ -120,9 +119,8 @@ function MyProfileWrapper(){
         }
         }).then((res) => {
           window.alert("비밀번호변경 완료 !");
-          //여기 뭘로 해야되나요??
           if(res.status===401){
-            window.alert("기존 비밀번호가 틀립니다.");
+            window.alert("기존 비밀번호를 다시 확인해주세요.");
             return ;
           }
 
@@ -139,8 +137,6 @@ function MyProfileWrapper(){
      
         <StyledChangeInfo>
         <Title><StyledPencil/>Change Your Password</Title>
-        {/* 여기 인풋타임 이걸로 비교하는게 맞나요?
-        인풋 없을때 버튼 눌러도 경고창 안뜸*/}
         <form onSubmit={postChangePW}>
           <Input type="password" name='Current Password' onChange={(e) => setInputs({...inputs,"password":e.target.value})}></Input>
           <Input type="password" name='New Password' onChange={(e) => setInputs({...inputs,"new_password":e.target.value})}></Input>
