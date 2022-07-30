@@ -6,18 +6,35 @@ import './NavBar_mypage.css';
 import { useHistory } from "react-router-dom";
 import { Cookies } from 'react-cookie';
 import {PersonFill} from '@styled-icons/bootstrap/PersonFill';
+import {DownArrow} from '@styled-icons/boxicons-solid/DownArrow';
+
 
 
 const HeaderMyPage = styled.nav`
     height: 3rem;
     width:100%;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     border-style: solid none;
     border-color: transparent transparent white;
     font-size: 1.5rem;
     font-weight : bold;
+
+    @media screen and (max-width:700px) {
+        justify-content: center;
+    }
     `;
-    
+const StyledArrow = styled(DownArrow)`
+    display: none;
+
+    @media screen and (max-width:700px) {
+        height: 1.3rem;
+        cursor: pointer;
+        display:flex;
+        color: var(--sub-purple);
+        margin-left: 0.5rem;
+}
+`;
 const NavBar = () => {
     const cookie = new Cookies();
     const history = useHistory();
@@ -36,6 +53,7 @@ const NavBar = () => {
             <Link to ='/' className='navbar-logo-mypage'>
             <img style={{width: '11rem'}} alt="blossomLogo" src="../../../../logo-4.png"/>
             </Link>
+            <StyledArrow></StyledArrow>
             
             <ul className= 'nav-menu-mypage'>
 

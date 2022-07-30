@@ -32,7 +32,7 @@
     padding: 0.3rem 1rem;
 }
 .nav-links-colorize:hover{
-    background-color : var(--sub-pink);
+    background-color : var(--main-pink);
     color: white;
     border-radius : 0.5rem;
     transition : all 0.2s ease-out;
