@@ -1,8 +1,9 @@
 .dropdown{
-    width: 80%;
+    width: 100%;
     position: absolute;
-    top: 50px;
+    top: 30px;
     list-style: none;
+    padding-left: 0px;
     text-align: center;
 }
 .dropdown-clicked{

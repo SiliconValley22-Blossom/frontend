@@ -38,12 +38,8 @@
 }
 
 @media screen and (max-width: 700px) {
-  .navbar-logo-colorize {
-    color: var(--main-white);
-    cursor: pointer;
-    font-size: 2rem;
-    margin-left: 0;
-    margin-top: 0.3rem;
+  .navbar-logo-mypage {
+    margin-left: 0em;
   }
   .header-mypage {
     justify-content: center;

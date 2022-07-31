@@ -34,6 +34,20 @@ const StyledArrow = styled(DownArrow)`
     margin-left: 0.5rem;
   }
 `;
+const StyledDropDown = styled.div` 
+  display: none;
+
+  @media screen and (max-width: 700px){
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+  }
+
+`;
 
 const NavBar = () => {
   const cookie = new Cookies();
@@ -101,7 +115,10 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      {dropDown}
+      <StyledDropDown>
+        {dropDown}
+      </StyledDropDown>
+      
     </StyledHeader>
   );
 };

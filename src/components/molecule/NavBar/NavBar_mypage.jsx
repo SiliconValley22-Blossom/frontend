@@ -34,6 +34,20 @@ const StyledArrow = styled(DownArrow)`
     margin-left: 0.5rem;
   }
 `;
+const StyledDropDown = styled.div` 
+  display: none;
+
+  @media screen and (max-width: 700px){
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+  }
+
+`;
 const NavBar = () => {
   const cookie = new Cookies();
   const history = useHistory();
@@ -46,10 +60,11 @@ const NavBar = () => {
       const pageClickEvent = (e) => {
         if (
           dropDownRef.current !== null &&
-          !dropDownRef.current.contains(e.target)
-        ) {
+          !dropDownRef.current.contains(e.target)) {
           setIsActive(!isActive);
+          console.log(e.target);
         }
+        
       };
       if (isActive) {
         window.addEventListener("click", pageClickEvent);
@@ -62,6 +77,7 @@ const NavBar = () => {
   );
 
   useEffect(() => {
+
     if (isActive) {
       return setDropDown(<DropDown />);
     }
@@ -87,7 +103,7 @@ const NavBar = () => {
           src="../../../../logo-4.png"
         />
       </Link>
-      <div className="menu-container">
+      <div className="menu-container-mypage">
         <StyledArrow onClick={(e) => setIsActive(!isActive)}></StyledArrow>
       </div>
 
@@ -110,7 +126,14 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      {dropDown}
+      
+      <StyledDropDown>
+        {dropDown}
+      </StyledDropDown>
+ 
+      
+      
+      
     </HeaderMyPage>
   );
 };
