@@ -43,13 +43,20 @@ const StyledItem = styled.div`
   color: grey;
   padding: 0rem 0rem 0rem 1.3rem;
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: grey;
 
-const CheckBox = styled.div`
+  &:hover{
+    color:var(--sub-pink);
+  }
+`;
+const CheckBoxWrapper = styled.div`
     display: flex;
-    padding: 0.2rem 1rem 0rem 2.3rem;
+    padding: 0rem 1rem 0rem 2.2rem;
     font-size: 1.1rem;
     color: grey;
-`
+`;
 
 const DeleteButton = styled.div`
   padding: 0.5rem 0.5rem;
@@ -74,6 +81,24 @@ const DeleteButton = styled.div`
     transition : all 0.2s ease-out;
   }
 `;
+
+const StyledInput = styled.input`
+  appearance: none;
+  border: 1.5px solid var(--sub-pink);
+  border-radius: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+
+  &:checked {
+    border-color: pink;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+    background-size: 150% 150%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color : pink;
+  }
+`
+
 
   
 function AdminWrapper(){
@@ -114,9 +139,9 @@ const [userRander, setUserRander] = useState([]);
                 {userInfos[i].user_id}
               </StyledItem>
               <StyledItem>
-                <Link to = {'/myPage/' + userInfos[i].nickname}>
-                {userInfos[i].email}
-                </Link>
+                <StyledLink to = {'/myPage/' + userInfos[i].nickname}>
+                  {userInfos[i].email}
+                </StyledLink>
               </StyledItem>
               <StyledItem>
                 {userInfos[i].nickname}
@@ -124,9 +149,9 @@ const [userRander, setUserRander] = useState([]);
               <StyledItem>
                 {userInfos[i].created_at.substring(6,17)}
               </StyledItem>
-              <CheckBox>
-              <input type = 'checkbox' onChange ={(e) => checkHandler(e)}></input>
-              </CheckBox>
+              <CheckBoxWrapper>
+              <StyledInput type = 'checkbox' onChange ={(e) => checkHandler(e)}></StyledInput>
+              </CheckBoxWrapper>
             </StyledList>
           );
         }
@@ -161,7 +186,7 @@ const [userRander, setUserRander] = useState([]);
                 <StyledItem>yjshin229@gmail.com</StyledItem>
                 <StyledItem>yjshin229</StyledItem>
                 <StyledItem>2022.07.31</StyledItem>
-                <CheckBox><input type = 'checkbox' onChange ={(e) => checkHandler(e)}></input></CheckBox>
+                <CheckBoxWrapper><StyledInput type = 'checkbox' onChange ={(e) => checkHandler(e)}></StyledInput></CheckBoxWrapper>
             </StyledList>
             {userRander}
 
