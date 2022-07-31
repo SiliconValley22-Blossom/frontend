@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import axios from "axios";
 import {ChevronBack} from '@styled-icons/ionicons-outline/ChevronBack';
 import {PersonFill} from '@styled-icons/bootstrap/PersonFill';
 
@@ -73,16 +74,27 @@ const BackButton = styled.button`
   color: gray;
 `
 
-function MyProfileWrapper(){
+const  MyProfileWrapper = () => {
   //닉네임이랑 이메일 불러오는 API
+
+  const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    return axios({
+      url: "/api/users",
+      method: "get",
+    }).then((response) => {
+      setUserInfo(response.data);
+    });
+  });
+
     return(
       <>
         <StyledMyProfile>
         <Info><StyledPersonFill/>Personal Information</Info>
 
-        {/*API 호출 후에 <p></p> 사이에 넣어 주시면 됩니다 (스타일링은 신경쓰지 마세요)*/}
-        <p>여기 닉네임</p>
-        <p>여기 이메일</p>
+        <p>{userInfo.nickname}</p>
+        <p>{userInfo.email}</p>
         <Link to = '/ChangeInfo'><ChangeButton>Change Password</ChangeButton></Link>
         <Link to = '/MyPage'>
             <IconWithWord>
