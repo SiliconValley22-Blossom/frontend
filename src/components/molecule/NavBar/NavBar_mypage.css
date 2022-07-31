@@ -1,60 +1,66 @@
-.navbar-logo-mypage{
+.navbar-logo-mypage {
+  color: var(--main-white);
+  cursor: pointer;
+  font-size: 2rem;
+  margin-left: 3rem;
+  margin-top: 0.3rem;
+}
+.nav-menu-mypage {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 0.5rem;
+  list-style: none;
+  margin: 0rem 1rem 0rem auto;
+}
+.nav-item-mypage {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
+.nav-person-mypage {
+  padding: 0.3rem 1rem;
+  color: var(--sub-purple);
+  width: 2rem;
+  height: 2rem;
+}
+
+.nav-links-mypage {
+  color: var(--sub-purple);
+  text-decoration: none;
+  padding: 0.3rem 1rem;
+}
+.nav-links-mypage:hover {
+  background-color: var(--main-pink);
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar-logo-colorize {
     color: var(--main-white);
     cursor: pointer;
-    font-size : 2rem;
-    margin-left: 3rem;
+    font-size: 2rem;
+    margin-left: 0;
     margin-top: 0.3rem;
-}
-.nav-menu-mypage{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 0.5rem;
-    list-style: none;
-    margin: 0rem 1rem 0rem auto;
-}
-.nav-item-mypage{
+  }
+  .header-mypage {
+    justify-content: center;
+  }
+  .nav-menu-mypage {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 5rem;
+    left: -100%;
+    opacity: 1;
+  }
+  .nav-links-mypage {
+    flex-direction: column;
     align-items: center;
-    height: 3rem;
-}
-
-.nav-person-mypage{
-    padding: 0.3rem 1rem;
-    color : var(--sub-purple);
-    width: 2rem;
-    height: 2rem;
-}
-
-.nav-links-mypage{
-    color: var(--sub-purple);
-    text-decoration : none;
-    padding: 0.3rem 1rem;
-}
-.nav-links-mypage:hover{
-    background-color : var(--main-pink);
-    color: white;
-    border-radius : 0.5rem;
-    transition : all 0.2s ease-out;
-}
-
-@media screen and (max-width:700px) {
-    .header-mypage{
-        justify-content: center;
-    }
-    .nav-menu-mypage{
-        display: flex;
-        flex-direction: column;
-        width:100%;
-        position: absolute;
-        top: 5rem;
-        left: -100%;
-        opacity:1;
-        
-    }
-    .nav-links-mypage{
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        display: table;
-    }
+    width: 100%;
+    display: table;
+  }
 }
