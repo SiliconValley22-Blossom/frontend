@@ -117,10 +117,7 @@ const StyledTrash = styled(Trash)`
   margin: 0rem 0.5rem 0.2rem 0rem;
   &:hover {
     color: white;
-    border-style: solid;
-    background-color: red;
-    border-color: black;
-    transition : all 0.2s ease-out;
+    border-style: none;
   }
 `
 const StyledInput = styled.input`
