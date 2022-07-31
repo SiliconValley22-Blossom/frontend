@@ -2,6 +2,34 @@ import React, { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import {ChevronBack} from '@styled-icons/ionicons-outline/ChevronBack';
+import {Trash} from '@styled-icons/heroicons-outline/Trash';
+
+const StyledListContainer = styled.div`
+  display: grid;
+  place-items: center;
+  grid-template-rows: repeat(1, 1fr);
+  margin-top : 1.5rem;
+  max-height: 35vh;
+  overflow: auto;
+  background : var(--main-gray);
+  border-radius: 0.9rem;
+  padding:  0.5rem 0rem 1rem 0.5rem;
+
+  &::-webkit-scrollbar {
+    margin-right: 0.5rem;
+    width: 8px;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--sub-gray);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--main-pink);
+    border-radius: 10px;
+  }
+`;
 
 const StyledAdmin = styled.div`
   margin: 8rem auto;
@@ -16,6 +44,7 @@ const StyledHeader = styled.div`
   place-items: start;
   border-style: solid none;
   border-color: transparent transparent grey;
+  margin-top: 1.5rem;
 `;
 
 const StyledTitle = styled.div`
@@ -33,7 +62,8 @@ const StyledList = styled.div`
   border-radius: 0.8rem;
   place-items: start;
   background-color:var(--main-purple);
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 0.5rem;
 `;
 
 const StyledItem = styled.div`
@@ -41,7 +71,7 @@ const StyledItem = styled.div`
   font-size: 1.1rem;
   font-weight: semi-bold;
   color: grey;
-  padding: 0rem 0rem 0rem 1.3rem;
+  padding: 0rem 0rem 0rem 1rem;
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -53,21 +83,22 @@ const StyledLink = styled(Link)`
 `;
 const CheckBoxWrapper = styled.div`
     display: flex;
-    padding: 0rem 1rem 0rem 2.2rem;
+    padding: 0rem 1rem 0rem 3rem;
     font-size: 1.1rem;
     color: grey;
 `;
 
 const DeleteButton = styled.div`
-  padding: 0.5rem 0.5rem;
-  border-radius: 1rem;
+  padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.8rem;
   border-style: solid;
   border-color: var(--sub-grey);
   color: gray;
+  justify-content: space-around;
   text-align: center;
   background: white;
-  width: 7rem;
-  margin: 2rem 0rem 0rem auto;
+  width: 8rem;
+  margin: 1rem 0rem 0rem auto;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
@@ -81,7 +112,17 @@ const DeleteButton = styled.div`
     transition : all 0.2s ease-out;
   }
 `;
-
+const StyledTrash = styled(Trash)`
+  width: 1.1rem;
+  margin: 0rem 0.5rem 0.2rem 0rem;
+  &:hover {
+    color: white;
+    border-style: solid;
+    background-color: red;
+    border-color: black;
+    transition : all 0.2s ease-out;
+  }
+`
 const StyledInput = styled.input`
   appearance: none;
   border: 1.5px solid var(--sub-pink);
@@ -97,9 +138,24 @@ const StyledInput = styled.input`
     background-repeat: no-repeat;
     background-color : pink;
   }
-`
+`;
 
+const HomeButton = styled.button`
+  border: none;
+  background-color: transparent;
+  width: 6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: Cormorant;
+  color: gray;
+`;
 
+const StyledChevronBack = styled(ChevronBack)`
+    color : var(--dark-gray);
+    width: 1rem;
+    margin : 0rem 0rem 0.1em 0rem;
+`;
   
 function AdminWrapper(){
 
@@ -174,6 +230,9 @@ const [userRander, setUserRander] = useState([]);
 
     return(
         <StyledAdmin>
+          <Link to ='/'>
+          <StyledChevronBack/><HomeButton>Back to Home</HomeButton>
+          </Link>
             <StyledHeader>
                 <StyledTitle>ID</StyledTitle>
                 <StyledTitle>Email</StyledTitle>
@@ -181,6 +240,7 @@ const [userRander, setUserRander] = useState([]);
                 <StyledTitle>Date</StyledTitle>
                 <StyledTitle>Remove</StyledTitle>
             </StyledHeader>
+            <StyledListContainer>
             <StyledList>
                 <StyledItem>1</StyledItem>
                 <StyledItem>yjshin229@gmail.com</StyledItem>
@@ -189,8 +249,8 @@ const [userRander, setUserRander] = useState([]);
                 <CheckBoxWrapper><StyledInput type = 'checkbox' onChange ={(e) => checkHandler(e)}></StyledInput></CheckBoxWrapper>
             </StyledList>
             {userRander}
-
-            <DeleteButton onClick={(e) => UserDelete(e)}>Delete User(s)</DeleteButton>
+            </StyledListContainer>
+            <DeleteButton onClick={(e) => UserDelete(e)}> <StyledTrash/>Delete User(s)</DeleteButton>
         </StyledAdmin>
     )
   }
