@@ -22,7 +22,9 @@ img{
 .App {
   text-align: center;
 }
-
+.changeinfo,
+.myprofile,
+.findpw,
 .signup,
 .login,
 .home{
@@ -37,11 +39,15 @@ img{
   justify-content: center;
   align-items: center;
 }
+.changeinfo,
+.myprofile,
+.findpw,
 .signup,
 .login{
   min-height: 100%;
   text-align: center;
 }
+
 .colorizefinish,
 .mypage,
 .colorize,

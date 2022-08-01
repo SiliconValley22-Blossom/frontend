@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const StyledSignUp = styled.div`
   width: 20rem;
-  padding-top: 1.5rem; 
-  padding-bottom: 1.5rem;
+  padding-top: 2rem; 
+  padding-bottom: 1rem;
   background: var(--main-white);
   border-radius: 2rem;
 
@@ -22,9 +22,9 @@ const SignUpButton = styled.button`
   text-align: center;
   background: white;
   width: 8rem;
-  margin: 2rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-family: Cormorant;
 
@@ -71,13 +71,6 @@ function SignUpWrapper(){
       return ;
     }
 
-    
-    const jsonData= JSON.stringify(
-      {
-        "email": inputs['email'],
-        "password" : inputs['password'],
-        "nickname" : inputs['nickname']
-    });
 
     if(inputs['password'] !== passwordCheck){
       return alert("비밀번호가 일치하지 않습니다!")
