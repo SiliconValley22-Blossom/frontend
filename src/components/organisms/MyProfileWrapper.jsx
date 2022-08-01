@@ -48,7 +48,7 @@ const ChangeButton = styled.button`
   text-align: center;
   background: white;
   width: 13rem;
-  margin: 0rem 0rem 0.5rem 0rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: bold;
@@ -77,14 +77,18 @@ const BackButton = styled.button`
 const  MyProfileWrapper = () => {
   //닉네임이랑 이메일 불러오는 API
 
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
-    return axios({
+    axios({
       url: "/api/users",
       method: "get",
     }).then((response) => {
-      setUserInfo(response.data);
+      setUserInfo(<>
+      <p>{response.data.nickname}</p>
+      <p>{response.data.email}</p>
+      </>
+      );
     });
   }, []);
 
@@ -92,9 +96,7 @@ const  MyProfileWrapper = () => {
       <>
         <StyledMyProfile>
         <Info><StyledPersonFill/>Personal Information</Info>
-
-        <p>{userInfo.nickname}</p>
-        <p>{userInfo.email}</p>
+        {userInfo}
         <Link to = '/ChangeInfo'><ChangeButton>Change Password</ChangeButton></Link>
         <Link to = '/MyPage'>
             <IconWithWord>
