@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ChevronBack } from "@styled-icons/ionicons-outline/ChevronBack";
 import { Trash } from "@styled-icons/heroicons-outline/Trash";
+import OthersUser from "../page/OthersUser";
 
 const StyledListContainer = styled.div`
   display: grid;
@@ -188,7 +189,7 @@ function AdminWrapper() {
           <StyledList key={i}>
             <StyledItem>{userInfos[i].user_id}</StyledItem>
             <StyledItem>
-              <StyledLink to={"/MyPage/" + userInfos[i].nickname}>
+              <StyledLink to={"/OthersUser/" + userInfos[i].user_id}>
                 {userInfos[i].email}
               </StyledLink>
             </StyledItem>

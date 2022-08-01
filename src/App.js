@@ -14,7 +14,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 
-axios.defaults.baseURL = "http://";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -27,6 +26,7 @@ function App() {
           <Route path="/SignUp" component={SignUp} />
           <Route path="/Colorize" component={Colorize} />
           <Route path="/MyPage" component={MyPage} />
+          <Route path="/OthersUser/:id" component={OthersUser} />
           <Route path="/ColorizeFinish/:id" component={ColorizeFinish} />
           <Route path="/FindPW" component={FindPW} />
           <Route path="/MyProfile" component={MyProfile} />
