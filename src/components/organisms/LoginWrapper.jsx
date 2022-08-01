@@ -66,7 +66,7 @@ function LoginWrapper(){
       method: "get"
     }).then((response) => {
       console.log(response.data.is_login);
-      if(response.data.is_login==true){
+      if(response.data.is_login===true){
         history.push("/Colorize");
         return;
       }
@@ -93,11 +93,12 @@ function LoginWrapper(){
           "password": inputs['password']
         }
       }).then((response) => {
-        if(response.status===401){
-          window.alert("로그인 실패");
+        return history.push("/Colorize");
+      }).catch((error) => {
+        if(error.response.status===401){
+          window.alert("아이디와 비밀번호를 확인해주십시오.");
           return ;
         }
-        return history.push("/Colorize");
       });
     }
 
