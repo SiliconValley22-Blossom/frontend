@@ -196,7 +196,7 @@ function AdminWrapper() {
               </StyledLink>
             </StyledItem>
             <StyledItem>{userInfos[i].nickname}</StyledItem>
-            <StyledItem>{userInfos[i].created_at.substring(6, 17)}</StyledItem>
+            <StyledItem>{userInfos[i].created_at.substring(5,17)}</StyledItem>
             <CheckBoxWrapper>
               <StyledInput
                 type="checkbox"
