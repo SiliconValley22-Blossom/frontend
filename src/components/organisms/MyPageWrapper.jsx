@@ -20,6 +20,12 @@ const StyledImageWrap = styled.div`
   object-fit: cover;
 `;
 
+const StyledImage = styled.img`
+  &:hover{
+    filter: grayscale(100%);
+  }
+`;
+
 const StyledWhiteboxContainer = styled.div`
   display: grid;
   place-items: center;
@@ -51,6 +57,7 @@ const StyledWhiteboxContainer = styled.div`
 `;
 
 const MyPageWrapper = () => {
+
   const [imageRander, setImageRander] = useState([]);
   const s3URL = "https://blossom-s3-test.s3.ap-northeast-2.amazonaws.com/";
   const getImages = () => {
@@ -65,7 +72,7 @@ const MyPageWrapper = () => {
         result.push(
           <StyledWhiteBox key={i}>
             <StyledImageWrap>
-              <img src={s3URL + imageData[i][1]} alt="image not found" />
+              <StyledImage src={s3URL + imageData[i][1]} alt="image not found" />
             </StyledImageWrap>
           </StyledWhiteBox>
         );
