@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link , useHistory} from "react-router-dom";
 import { ChevronBack } from "@styled-icons/ionicons-outline/ChevronBack";
 import { Trash } from "@styled-icons/heroicons-outline/Trash";
 import OthersUser from "../page/OthersUser";
@@ -177,6 +177,8 @@ function AdminWrapper() {
 
   const [userRander, setUserRander] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
     axios({
       url: "/api/admin/users",
@@ -205,7 +207,13 @@ function AdminWrapper() {
         );
       }
       setUserRander(result);
+    }).catch((error) => {
+      if(error.response.status >= 400){
+        window.alert("접근권한이 없습니다.");
+        return history.push("/"); ;
+      }
     });
+
   }, []);
 
   const UserDelete = (e) => {
