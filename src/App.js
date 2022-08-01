@@ -14,7 +14,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "http://";
 axios.defaults.withCredentials = true;
 
 function App() {
