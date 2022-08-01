@@ -22,6 +22,7 @@ img{
 .App {
   text-align: center;
 }
+.admin,
 .changeinfo,
 .myprofile,
 .findpw,
@@ -47,8 +48,6 @@ img{
   min-height: 100%;
   text-align: center;
 }
-
-.colorizefinish,
 .mypage,
 .colorize,
 .colorizefinish{

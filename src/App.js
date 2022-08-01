@@ -8,6 +8,7 @@ import ColorizeFinish from "./components/page/ColorizeFinish";
 import FindPW from "./components/page/FindPW";
 import MyProfile from "./components/page/MyProfile";
 import ChangeInfo from './components/page/ChangeInfo';
+import Admin from './components/page/Admin';
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/FindPW" component={FindPW} />
           <Route path="/MyProfile" component={MyProfile} />
           <Route path="/ChangeInfo" component={ChangeInfo} />
+          <Route path="/admin" component={Admin} />
         </Switch>
       </BrowserRouter>
     </div>
