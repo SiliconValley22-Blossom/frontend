@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import MenuItems from '../../atom/MenuItems'
+import MenuItems from '../../atom/MenuItems_mypage'
 import './DropDown.css';
 
 
-function DropDown () {
+function DropDown_mypage () {
 
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
@@ -26,4 +26,4 @@ function DropDown () {
     );
 }
 
-export default DropDown;
+export default DropDown_mypage;

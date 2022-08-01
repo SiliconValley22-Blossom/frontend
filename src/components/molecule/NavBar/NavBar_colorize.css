@@ -1,17 +1,16 @@
 .navbar-logo-colorize{
     color: var(--main-white);
-    float:left;
     cursor: pointer;
-    text-decoration: none;
+    font-size : 2rem;
     margin-left: 3rem;
+    margin-top: 0.3rem;
 }
 .nav-menu-colorize{
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-gap: 0.5rem;
     list-style: none;
-    float: right;
-    margin: 0rem 2rem 2rem 0rem;
+    margin: 0rem 1rem 0rem auto;
 }
 .nav-item-colorize{
     display: flex;
@@ -32,32 +31,28 @@
     padding: 0.3rem 1rem;
 }
 .nav-links-colorize:hover{
-    background-color : var(--sub-pink);
+    background-color : var(--main-pink);
     color: white;
     border-radius : 0.5rem;
     transition : all 0.2s ease-out;
 }
 
 
-@media screen and (max-width:50px) {
-
-    
+@media screen and (max-width:700px) {
     .navbar-logo-colorize{
-        display: flex;
-        margin-bottom: 3.5rem;
-        margin-left: 3rem;
-        
+        margin-left: 0;
+    }
+    .header-mypage{
+        justify-content: center;
     }
     .nav-menu-colorize{
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 90vh;
+        width:100%;
         position: absolute;
-        opacity: 1;
-        left: -100%;
         top: 5rem;
-        margin-top: 10rem;
+        left: -100%;
+        opacity:1;
     }
     .nav-menu-colorize-active{
         background-color: var(--main-pink);
@@ -67,8 +62,8 @@
         z-index: 3;
     }
     .nav-links-colorize{
-        text-align: center;
-        padding: 2rem;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         display: table;
     }
