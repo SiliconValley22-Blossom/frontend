@@ -1,20 +1,20 @@
-import React, { useEffect,useState } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import {Link} from "react-router-dom";
-import {ChevronBack} from '@styled-icons/ionicons-outline/ChevronBack';
-import {Trash} from '@styled-icons/heroicons-outline/Trash';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { ChevronBack } from "@styled-icons/ionicons-outline/ChevronBack";
+import { Trash } from "@styled-icons/heroicons-outline/Trash";
 
 const StyledListContainer = styled.div`
   display: grid;
   place-items: center;
   grid-template-rows: repeat(1, 1fr);
-  margin-top : 1.5rem;
+  margin-top: 1.5rem;
   max-height: 35vh;
   overflow: auto;
-  background : var(--main-gray);
+  background: var(--main-gray);
   border-radius: 0.9rem;
-  padding:  0.5rem 0rem 1rem 0.5rem;
+  padding: 0.5rem 0rem 1rem 0.5rem;
 
   &::-webkit-scrollbar {
     margin-right: 0.5rem;
@@ -61,7 +61,7 @@ const StyledList = styled.div`
   padding: 0.5em 0rem 0.6rem 0rem;
   border-radius: 0.8rem;
   place-items: start;
-  background-color:var(--main-purple);
+  background-color: var(--main-purple);
   margin-bottom: 1.5rem;
   margin-right: 0.5rem;
 `;
@@ -77,15 +77,15 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: grey;
 
-  &:hover{
-    color:var(--sub-pink);
+  &:hover {
+    color: var(--sub-pink);
   }
 `;
 const CheckBoxWrapper = styled.div`
-    display: flex;
-    padding: 0rem 1rem 0rem 3rem;
-    font-size: 1.1rem;
-    color: grey;
+  display: flex;
+  padding: 0rem 1rem 0rem 3rem;
+  font-size: 1.1rem;
+  color: grey;
 `;
 
 const DeleteButton = styled.div`
@@ -109,7 +109,7 @@ const DeleteButton = styled.div`
     border-style: solid;
     background-color: red;
     border-color: black;
-    transition : all 0.2s ease-out;
+    transition: all 0.2s ease-out;
   }
 `;
 const StyledTrash = styled(Trash)`
@@ -119,7 +119,7 @@ const StyledTrash = styled(Trash)`
     color: white;
     border-style: none;
   }
-`
+`;
 const StyledInput = styled.input`
   appearance: none;
   border: 1.5px solid var(--sub-pink);
@@ -133,7 +133,7 @@ const StyledInput = styled.input`
     background-size: 150% 150%;
     background-position: 50%;
     background-repeat: no-repeat;
-    background-color : pink;
+    background-color: pink;
   }
 `;
 
@@ -149,17 +149,16 @@ const HomeButton = styled.button`
 `;
 
 const StyledChevronBack = styled(ChevronBack)`
-    color : var(--dark-gray);
-    width: 1rem;
-    margin : 0rem 0rem 0.1em 0rem;
+  color: var(--dark-gray);
+  width: 1rem;
+  margin: 0rem 0rem 0.1em 0rem;
 `;
-  
-function AdminWrapper(){
 
+function AdminWrapper() {
   const [isChecked, setIsChecked] = useState(false);
   const [checkedUsers, setCheckedUsers] = useState([]);
 
-  const checkHandler = ({target}) => {
+  const checkHandler = ({ target }) => {
     setIsChecked(!isChecked);
     checkedUserHandler(target.parentNode, target.value, target.checked);
   };
@@ -168,51 +167,45 @@ function AdminWrapper(){
     if (isChecked) {
       checkedUsers.add(id);
       setCheckedUsers(checkedUsers);
-    }else if (!isChecked && checkedUsers.has(id)){
+    } else if (!isChecked && checkedUsers.has(id)) {
       checkedUsers.delete(id);
       setCheckedUsers(checkedUsers);
     }
     return checkedUsers;
   };
 
-const [userInfos, setUserInfos] = useState([]);
-const [userRander, setUserRander] = useState([]);
+  const [userRander, setUserRander] = useState([]);
 
   useEffect(() => {
-    console.log('test');
     axios({
-        url: "/api/admin/users",
-        method: "get"
-      }).then((response) => {
-        setUserInfos(response.data);
-        const result = [];
-        for (let i = 0; i < userInfos.length; i++) {
-          result.push(
-            <StyledList key={i}>
-              <StyledItem>
-                {userInfos[i].user_id}
-              </StyledItem>
-              <StyledItem>
-                <StyledLink to = {'/MyPage/' + userInfos[i].nickname}>
-                  {userInfos[i].email}
-                </StyledLink>
-              </StyledItem>
-              <StyledItem>
-                {userInfos[i].nickname}
-              </StyledItem>
-              <StyledItem>
-                {userInfos[i].created_at.substring(6,17)}
-              </StyledItem>
-              <CheckBoxWrapper>
-              <StyledInput type = 'checkbox' onChange ={(e) => checkHandler(e)}></StyledInput>
-              </CheckBoxWrapper>
-            </StyledList>
-          );
-        }
+      url: "/api/admin/users",
+      method: "get",
+    }).then((response) => {
+      const userInfos = response.data;
+      const result = [];
+      for (let i = 0; i < userInfos.length; i++) {
+        result.push(
+          <StyledList key={i}>
+            <StyledItem>{userInfos[i].user_id}</StyledItem>
+            <StyledItem>
+              <StyledLink to={"/MyPage/" + userInfos[i].nickname}>
+                {userInfos[i].email}
+              </StyledLink>
+            </StyledItem>
+            <StyledItem>{userInfos[i].nickname}</StyledItem>
+            <StyledItem>{userInfos[i].created_at.substring(6, 17)}</StyledItem>
+            <CheckBoxWrapper>
+              <StyledInput
+                type="checkbox"
+                onChange={(e) => checkHandler(e)}
+              ></StyledInput>
+            </CheckBoxWrapper>
+          </StyledList>
+        );
+      }
       setUserRander(result);
-      });
+    });
   }, []);
-
 
   const UserDelete = (e) => {
     e.preventDefault();
@@ -220,30 +213,32 @@ const [userRander, setUserRander] = useState([]);
       url: "/api/admin/users",
       method: "delete",
       data: {
-        "id_list": checkedUsers
-      }
-    }).then((response) => {
-  });
-};
+        id_list: checkedUsers,
+      },
+    }).then((response) => {});
+  };
 
-    return(
-        <StyledAdmin>
-          <Link to ='/'>
-          <StyledChevronBack/><HomeButton>Back to Home</HomeButton>
-          </Link>
-            <StyledHeader>
-                <StyledTitle>ID</StyledTitle>
-                <StyledTitle>Email</StyledTitle>
-                <StyledTitle>Nickname</StyledTitle>
-                <StyledTitle>Date</StyledTitle>
-                <StyledTitle>Remove</StyledTitle>
-            </StyledHeader>
-            <StyledListContainer>
-            {userRander}
-            </StyledListContainer>
-            <DeleteButton onClick={(e) => UserDelete(e)}> <StyledTrash/>Delete User(s)</DeleteButton>
-        </StyledAdmin>
-    )
-  }
+  return (
+    <StyledAdmin>
+      <Link to="/">
+        <StyledChevronBack />
+        <HomeButton>Back to Home</HomeButton>
+      </Link>
+      <StyledHeader>
+        <StyledTitle>ID</StyledTitle>
+        <StyledTitle>Email</StyledTitle>
+        <StyledTitle>Nickname</StyledTitle>
+        <StyledTitle>Date</StyledTitle>
+        <StyledTitle>Remove</StyledTitle>
+      </StyledHeader>
+      <StyledListContainer>{userRander}</StyledListContainer>
+      <DeleteButton onClick={(e) => UserDelete(e)}>
+        {" "}
+        <StyledTrash />
+        Delete User(s)
+      </DeleteButton>
+    </StyledAdmin>
+  );
+}
 
 export default AdminWrapper;
