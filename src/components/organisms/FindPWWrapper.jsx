@@ -70,7 +70,7 @@ function FindPWWrapper(){
     }
     
     axios({
-        url: "/api/login",
+        url: "/users/reset-password",
         method: "post",
         data: {
           "email":inputs['email'],
