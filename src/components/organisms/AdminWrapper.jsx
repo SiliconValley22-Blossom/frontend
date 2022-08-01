@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link , useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { ChevronBack } from "@styled-icons/ionicons-outline/ChevronBack";
 import { Trash } from "@styled-icons/heroicons-outline/Trash";
-
 
 const StyledListContainer = styled.div`
   display: grid;
@@ -156,23 +155,21 @@ const StyledChevronBack = styled(ChevronBack)`
 `;
 
 function AdminWrapper() {
-  const [isChecked, setIsChecked] = useState(false);
-  const [checkedUsers, setCheckedUsers] = useState([]);
+  //const [checkedUsers, setCheckedUsers] = useState([]);
+  let checkUsers = [];
+  const [checkResult, setCheckResult] = useState({
+    "list": []
+  });
 
-  const checkHandler = ({ target }) => {
-    setIsChecked(!isChecked);
-    checkedUserHandler(target.parentNode, target.value, target.checked);
-  };
-
-  const checkedUserHandler = (id, isChecked) => {
-    if (isChecked) {
-      checkedUsers.add(id);
-      setCheckedUsers(checkedUsers);
-    } else if (!isChecked && checkedUsers.has(id)) {
-      checkedUsers.delete(id);
-      setCheckedUsers(checkedUsers);
+  const checkedUserHandler = (ev, userId) => {
+    if (ev.target.checked) {
+      checkUsers.push(userId);
+      setCheckResult({"list": checkUsers});
+      return;
     }
-    return checkedUsers;
+    const idx = checkUsers.indexOf(userId);
+    checkUsers.splice(idx, 1);
+    setCheckResult({"list": checkUsers});
   };
 
   const [userRander, setUserRander] = useState([]);
@@ -183,37 +180,40 @@ function AdminWrapper() {
     axios({
       url: "/api/admin/users",
       method: "get",
-    }).then((response) => {
-      const userInfos = response.data;
-      const result = [];
-      for (let i = 0; i < userInfos.length; i++) {
-        result.push(
-          <StyledList key={i}>
-            <StyledItem>{userInfos[i].user_id}</StyledItem>
-            <StyledItem>
-              <StyledLink to={"/OthersUser/" + userInfos[i].user_id}>
-                {userInfos[i].email}
-              </StyledLink>
-            </StyledItem>
-            <StyledItem>{userInfos[i].nickname}</StyledItem>
-            <StyledItem>{userInfos[i].created_at.substring(6, 17)}</StyledItem>
-            <CheckBoxWrapper>
-              <StyledInput
-                type="checkbox"
-                onChange={(e) => checkHandler(e)}
-              ></StyledInput>
-            </CheckBoxWrapper>
-          </StyledList>
-        );
-      }
-      setUserRander(result);
-    }).catch((error) => {
-      if(error.response.status >= 400){
-        window.alert("접근권한이 없습니다.");
-        return history.push("/"); ;
-      }
-    });
-
+    })
+      .then((response) => {
+        const userInfos = response.data;
+        const result = [];
+        for (let i = 0; i < userInfos.length; i++) {
+          result.push(
+            <StyledList key={i}>
+              <StyledItem>{userInfos[i].user_id}</StyledItem>
+              <StyledItem>
+                <StyledLink to={"/OthersUser/" + userInfos[i].user_id}>
+                  {userInfos[i].email}
+                </StyledLink>
+              </StyledItem>
+              <StyledItem>{userInfos[i].nickname}</StyledItem>
+              <StyledItem>
+                {userInfos[i].created_at.substring(6, 17)}
+              </StyledItem>
+              <CheckBoxWrapper>
+                <StyledInput
+                  type="checkbox"
+                  onChange={(e) => checkedUserHandler(e, userInfos[i].user_id)}
+                ></StyledInput>
+              </CheckBoxWrapper>
+            </StyledList>
+          );
+        }
+        setUserRander(result);
+      })
+      .catch((error) => {
+        if (error.response.status >= 400) {
+          window.alert("접근권한이 없습니다.");
+          return history.push("/");
+        }
+      });
   }, []);
 
   const UserDelete = (e) => {
@@ -222,7 +222,7 @@ function AdminWrapper() {
       url: "/api/admin/users",
       method: "delete",
       data: {
-        id_list: checkedUsers,
+        id_list: checkResult.list,
       },
     }).then((response) => {});
   };
@@ -242,7 +242,6 @@ function AdminWrapper() {
       </StyledHeader>
       <StyledListContainer>{userRander}</StyledListContainer>
       <DeleteButton onClick={(e) => UserDelete(e)}>
-        {" "}
         <StyledTrash />
         Delete User(s)
       </DeleteButton>
