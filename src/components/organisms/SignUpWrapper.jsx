@@ -85,16 +85,14 @@ function SignUpWrapper(){
         "nickname" : inputs['nickname']
       }
     }).then((res) => {
-      if(res.status===400){
-        window.alert("같은 이메일이 존재합니다. 다른 이메일을 입력해주십시오.");
-        return;
-      }else{
-        window.alert("회원가입 완료 !");
+      window.alert("회원가입 완료 !");
       return history.push("/Login");
-      }
     })
     .catch((error)=>{
-      console.log(error);
+      if(error.response.status===400){
+        window.alert("같은 이메일이 존재합니다. 다른 이메일을 입력해주십시오.");
+        return;
+      }
     })
   }
 

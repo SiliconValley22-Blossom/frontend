@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link , useHistory} from "react-router-dom";
 import { ChevronBack } from "@styled-icons/ionicons-outline/ChevronBack";
 import { Trash } from "@styled-icons/heroicons-outline/Trash";
-import OthersUser from "../page/OthersUser";
+
 
 const StyledListContainer = styled.div`
   display: grid;
