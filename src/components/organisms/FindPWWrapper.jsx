@@ -77,7 +77,7 @@ function FindPWWrapper() {
         return;
       }
       window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!");
-      return history.push("/Colorize");
+      return history.push("/Login");
     });
   };
 
