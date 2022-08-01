@@ -86,7 +86,7 @@ const  MyProfileWrapper = () => {
     }).then((response) => {
       setUserInfo(response.data);
     });
-  });
+  }, []);
 
     return(
       <>

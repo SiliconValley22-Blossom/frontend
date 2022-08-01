@@ -71,7 +71,7 @@ function LoginWrapper(){
         return;
       }
     });
-  });  
+  }, []);  
 
   const postLogin = (ev) => {
     if(inputs['email']===""){

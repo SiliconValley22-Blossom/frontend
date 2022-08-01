@@ -79,11 +79,11 @@ function SignUpWrapper(){
     axios({
       url: "/api/users",
       method: "post",
-      data:{
+      data: {
         "email": inputs['email'],
         "password" : inputs['password'],
         "nickname" : inputs['nickname']
-    }
+      }
     }).then((res) => {
       window.alert("회원가입 완료 !");
       return history.push("/Login");

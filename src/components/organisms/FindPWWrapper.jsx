@@ -1,9 +1,9 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Input from "../atom/Input";
-import styled from 'styled-components';
-import axios from 'axios';
-import { useHistory, Link} from "react-router-dom";
-import {Cookies} from "react-cookie";
+import styled from "styled-components";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
+import { Cookies } from "react-cookie";
 
 const StyledLogin = styled.div`
   margin: 8rem auto;
@@ -12,7 +12,6 @@ const StyledLogin = styled.div`
   padding-top: 2rem;
   padding-bottom: 1rem;
   width: 18rem;
-  
 `;
 
 const LoginButton = styled.button`
@@ -25,7 +24,7 @@ const LoginButton = styled.button`
   font-family: Cormorant;
   margin-bottom: 0.5rem;
   color: gray;
-`
+`;
 
 const SendEmail = styled.button`
   padding: 0.4rem 0.3rem;
@@ -45,61 +44,62 @@ const SendEmail = styled.button`
   &:hover {
     color: var(--main-purple);
     border-style: solid;
-    border-color:var(--main-pink);
-    transition : all 0.2s ease-out;
+    border-color: var(--main-pink);
+    transition: all 0.2s ease-out;
   }
 `;
 
-
-  
-function FindPWWrapper(){
-
+function FindPWWrapper() {
   const [inputs, setInputs] = useState({
-    email : ''
-  })
-   
+    email: "",
+  });
+
   //API 확인 필요 (password 부분만 삭제함)
-  const history=useHistory();
+  const history = useHistory();
 
   const postLogin = (ev) => {
     ev.preventDefault();
 
-    if(inputs['email']===""){
+    if (inputs["email"] === "") {
       window.alert("이메일을 입력해주세요.");
-      return ;
+      return;
     }
-    
+
     axios({
-        url: "/users/reset-password",
-        method: "post",
-        data: {
-          "email":inputs['email'],
-        }
-      }).then((response) => {
-        if(response.status===403){
-          window.alert("이메일 보내기 실패");
-          return ;
-        }
-        
-        window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!")
-        return history.push("/Colorize");
-      });
-    }
+      url: "/api/users/reset-password",
+      method: "post",
+      data: {
+        email: inputs["email"],
+      },
+    }).then((response) => {
+      if (response.status === 403) {
+        window.alert("이메일 보내기 실패");
+        return;
+      }
 
-    return(
-      <>
-        <StyledLogin>
+      window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!");
+      return history.push("/Colorize");
+    });
+  };
+
+  return (
+    <>
+      <StyledLogin>
         <form onSubmit={postLogin}>
-        <Input name="Email" type="text" onChange={(e) => setInputs({...inputs,"email":e.target.value})}></Input>
+          <Input
+            name="Email"
+            type="text"
+            onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+          ></Input>
 
-        <SendEmail>Send Email</SendEmail>
+          <SendEmail>Send Email</SendEmail>
         </form>
         <Link to="/login">
-            <LoginButton>Back to Login</LoginButton>
+          <LoginButton>Back to Login</LoginButton>
         </Link>
-        </StyledLogin>
-      </>
-    )
-  }
+      </StyledLogin>
+    </>
+  );
+}
 
 export default FindPWWrapper;

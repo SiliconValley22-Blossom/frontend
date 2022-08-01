@@ -210,7 +210,7 @@ const [userRander, setUserRander] = useState([]);
         }
       setUserRander(result);
       });
-  });
+  }, []);
 
 
   const UserDelete = (e) => {
