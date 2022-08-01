@@ -51,19 +51,12 @@ const StyledDropDown = styled.div`
 const NavBar = () => {
   const cookie = new Cookies();
   const history = useHistory();
-  const dropDownRef = useRef("");
   const [isActive, setIsActive] = useState(false);
   const [dropDown, setDropDown] = useState(null);
 
   useEffect(
     (e) => {
       const pageClickEvent = (e) => {
-        if (
-          dropDownRef.current !== null &&
-          !dropDownRef.current.contains(e.target)) {
-          setIsActive(!isActive);
-          console.log(e.target);
-        }
         
       };
       if (isActive) {
