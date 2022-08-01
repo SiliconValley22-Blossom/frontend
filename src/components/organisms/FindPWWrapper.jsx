@@ -61,28 +61,14 @@ function FindPWWrapper(){
   //API 확인 필요 (password 부분만 삭제함)
   const history=useHistory();
 
-  const cookie = new Cookies();
-  
-  useEffect(() => {
-    if(cookie.get('access_token_cookie') != null) {
-      history.push("/Colorize");
-  }});  
-
   const postLogin = (ev) => {
+    ev.preventDefault();
+
     if(inputs['email']===""){
       window.alert("이메일을 입력해주세요.");
       return ;
-    }else{
-      window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!")
     }
-    console.log(inputs)
-    ev.preventDefault();
-    const data = JSON.stringify(
-      {
-        "email":inputs['email']
-      });
-
-    console.log(data);
+    
     axios({
         url: "/api/login",
         method: "post",
@@ -94,6 +80,8 @@ function FindPWWrapper(){
           window.alert("이메일 보내기 실패");
           return ;
         }
+        
+        window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!")
         return history.push("/Colorize");
       });
     }
