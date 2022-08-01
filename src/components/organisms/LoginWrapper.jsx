@@ -3,7 +3,6 @@ import Input from "../atom/Input";
 import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory, Link} from "react-router-dom";
-import {Cookies} from "react-cookie";
 
 const StyledLogin = styled.div`
   margin: 8rem auto;
@@ -60,13 +59,19 @@ function LoginWrapper(){
   })
    
   const history=useHistory();
-
-  const cookie = new Cookies();
   
   useEffect(() => {
-    if(cookie.get('access_token_cookie') != null) {
-      history.push("/Colorize");
-  }});  
+    axios({
+      url: "/api/login/check",
+      method: "get"
+    }).then((response) => {
+      console.log(response.data.is_login);
+      if(response.data.is_login==true){
+        history.push("/Colorize");
+        return;
+      }
+    });
+  });  
 
   const postLogin = (ev) => {
     if(inputs['email']===""){
