@@ -71,14 +71,19 @@ function FindPWWrapper() {
       data: {
         email: inputs["email"],
       },
-    }).then((response) => {
-      if (response.status === 401) {
-        window.alert("이메일이 존재하지 않습니다. 이메일을 다시 입력해주세요.");
-        return;
-      }
-      window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!");
-      return history.push("/Login");
-    });
+    })
+      .then((response) => {
+        window.alert("해당 이메일로 임시비밀번호를 발급하였습니다!");
+        return history.push("/Login");
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          window.alert(
+            "이메일이 존재하지 않습니다. 이메일을 다시 입력해주세요."
+          );
+          return;
+        }
+      });
   };
 
   return (
