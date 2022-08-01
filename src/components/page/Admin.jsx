@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css'
 import AdminWrapper from '../organisms/AdminWrapper';
 
-function MyPage(){
+function AdminPage(props){
     return (
         <div className="admin">
             <AdminWrapper/>
@@ -10,4 +10,4 @@ function MyPage(){
     )
 };
 
-export default MyPage;
+export default AdminPage;
