@@ -106,7 +106,7 @@ function MyProfileWrapper(){
             window.alert("새로운비밀번호를 입력해주세요.")
             return ;
 
-        }if(inputs['password'] !== passwordCheck){
+        }if(inputs['new_password'] !== passwordCheck){
             return alert("비밀번호가 일치하지 않습니다!")
         }
         
