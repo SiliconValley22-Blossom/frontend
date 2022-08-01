@@ -179,6 +179,7 @@ const [userInfos, setUserInfos] = useState([]);
 const [userRander, setUserRander] = useState([]);
 
   useEffect(() => {
+    console.log('test');
     axios({
         url: "/api/admin/users",
         method: "get"
@@ -192,7 +193,7 @@ const [userRander, setUserRander] = useState([]);
                 {userInfos[i].user_id}
               </StyledItem>
               <StyledItem>
-                <StyledLink to = {'/myPage/' + userInfos[i].nickname}>
+                <StyledLink to = {'/MyPage/' + userInfos[i].nickname}>
                   {userInfos[i].email}
                 </StyledLink>
               </StyledItem>
@@ -238,13 +239,6 @@ const [userRander, setUserRander] = useState([]);
                 <StyledTitle>Remove</StyledTitle>
             </StyledHeader>
             <StyledListContainer>
-            <StyledList>
-                <StyledItem>1</StyledItem>
-                <StyledItem>yjshin229@gmail.com</StyledItem>
-                <StyledItem>yjshin229</StyledItem>
-                <StyledItem>2022.07.31</StyledItem>
-                <CheckBoxWrapper><StyledInput type = 'checkbox' onChange ={(e) => checkHandler(e)}></StyledInput></CheckBoxWrapper>
-            </StyledList>
             {userRander}
             </StyledListContainer>
             <DeleteButton onClick={(e) => UserDelete(e)}> <StyledTrash/>Delete User(s)</DeleteButton>
