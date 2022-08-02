@@ -16,8 +16,11 @@ const StyledWhiteBox = styled.div`
 const StyledImageWrap = styled.div`
   top: 0;
   left: 0;
-  max-width: 100%;
-  object-fit: cover;
+  height: 500px;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledWhiteboxContainer = styled.div`
@@ -34,6 +37,17 @@ const StyledWhiteboxContainer = styled.div`
   max-height: 90vh;
   height: auto;
 
+  @media screen and (max-width:930px){
+    grid-template-columns:1fr 1fr;
+    width: auto;
+    height: auto;
+   
+  }
+  @media screen and (max-width:630px){
+    grid-template-columns:1fr;
+    width: auto;
+    height: auto;
+  }
   overflow: auto;
   &::-webkit-scrollbar {
     width: 11px;
