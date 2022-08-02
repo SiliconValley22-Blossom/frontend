@@ -226,7 +226,7 @@ function AdminWrapper() {
       },
     }).then((response) => {
       window.alert("삭제되었습니다.");
-      history.push("/AdminPage");
+      window.location.replace("/AdminPage");
     });
   };
 
