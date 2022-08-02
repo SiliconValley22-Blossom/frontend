@@ -158,18 +158,18 @@ function AdminWrapper() {
   //const [checkedUsers, setCheckedUsers] = useState([]);
   let checkUsers = [];
   const [checkResult, setCheckResult] = useState({
-    "list": []
+    list: [],
   });
 
   const checkedUserHandler = (ev, userId) => {
     if (ev.target.checked) {
       checkUsers.push(userId);
-      setCheckResult({"list": checkUsers});
+      setCheckResult({ list: checkUsers });
       return;
     }
     const idx = checkUsers.indexOf(userId);
     checkUsers.splice(idx, 1);
-    setCheckResult({"list": checkUsers});
+    setCheckResult({ list: checkUsers });
   };
 
   const [userRander, setUserRander] = useState([]);
@@ -224,7 +224,10 @@ function AdminWrapper() {
       data: {
         id_list: checkResult.list,
       },
-    }).then((response) => {});
+    }).then((response) => {
+      window.alert("삭제되었습니다.");
+      history.push("/AdminPage");
+    });
   };
 
   return (
