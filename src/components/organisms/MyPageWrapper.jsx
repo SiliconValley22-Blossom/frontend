@@ -16,8 +16,11 @@ const StyledWhiteBox = styled.div`
 const StyledImageWrap = styled.div`
   top: 0;
   left: 0;
-  max-width: 100%;
-  object-fit: cover;
+  height: 500px;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledImage = styled.img`
