@@ -42,6 +42,17 @@ const StyledWhiteboxContainer = styled.div`
   width: 56.5rem;
   max-height: 90vh;
   height: auto;
+  @media screen and (max-width:930px){
+    grid-template-columns:1fr 1fr;
+    width: auto;
+    height: auto;
+   
+  }
+  @media screen and (max-width:630px){
+    grid-template-columns:1fr;
+    width: auto;
+    height: auto;
+  }
 
   overflow: auto;
   &::-webkit-scrollbar {
@@ -57,6 +68,8 @@ const StyledWhiteboxContainer = styled.div`
     background: linear-gradient(#f7ccca, #d8d1e1);
     border-radius: 10px;
   }
+
+  
 `;
 
 const MyPageWrapper = () => {
