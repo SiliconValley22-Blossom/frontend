@@ -80,7 +80,7 @@ const DragDrop = () => {
     console.log(colorPhotoId);
 
     const postPhoto = () => {
-      return  axios({
+      return axios({
         url: "/api/photos",
         method: "post",
         data: formData,
@@ -88,17 +88,22 @@ const DragDrop = () => {
       }).then((response) => {
         return history.push("/Colorizefinish/" + response.data.color_photo_id);
       });
-    }
+    };
 
     postPhoto().catch((error) => {
-      if(error.response.status===401){
+      if (error.response.status === 401) {
         axios({
           url: "/api/refresh",
-          method: "get"
-      }).then((response)=>{
-        postPhoto()
-      })}
-    })
+          method: "get",
+        }).then((response) => {
+          postPhoto();
+        });
+      }
+      if (error.response.status === 413) {
+        window.alert("사진 파일이 너무 큽니다. 다른 파일을 입력해주세요.");
+        return;
+      }
+    });
   };
 
   return (
